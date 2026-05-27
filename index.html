@@ -134,6 +134,30 @@
             font-weight: 500;
         }
 
+        .command-card.overview {
+            background: linear-gradient(135deg, #F0E6FF 0%, #E8F0FE 100%);
+            border-left: 3px solid #7C3AED;
+            color: #5B21B6;
+            font-weight: 500;
+        }
+
+        .command-card.overview:hover {
+            background: linear-gradient(135deg, #E0D4F7 0%, #D4E4FC 100%);
+            color: #6D28D9;
+        }
+
+        .command-card.overview:active {
+            background: #7C3AED;
+            color: #FFFFFF;
+        }
+
+        .command-card.overview.selected {
+            border-left: 3px solid #7C3AED;
+            background: linear-gradient(135deg, #E0D4F7 0%, #D4E4FC 100%);
+            color: #5B21B6;
+            font-weight: 600;
+        }
+
         .clear-chat-btn {
             margin: 24px 12px;
             padding: 0;
@@ -1296,6 +1320,28 @@
         .followup-tag:active {
             background: #4A90E2;
             color: #FFFFFF;
+            transform: scale(0.95);
+        }
+
+        .suggest-tag {
+            padding: 4px 12px;
+            border-radius: 14px;
+            background: #F5F7FA;
+            color: #4A90E2;
+            font-size: 11px;
+            cursor: pointer;
+            border: 1px solid #E8ECF0;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .suggest-tag:hover {
+            background: #4A90E2;
+            color: #FFFFFF;
+            border-color: #4A90E2;
+        }
+
+        .suggest-tag:active {
             transform: scale(0.95);
         }
 
@@ -2761,6 +2807,12 @@
             line-height: 1.4;
         }
 
+        .dimension-tag.competence { background: #E8EAF6; color: #283593; }
+        .dimension-tag.performance { background: #E0F2F1; color: #00695C; }
+        .dimension-tag.team { background: #FFF3E0; color: #E65100; }
+        .dimension-tag.adaptability { background: #E3F2FD; color: #1565C0; }
+        .dimension-tag.growth { background: #F3E5F5; color: #7B1FA2; }
+        .dimension-tag.feasibility { background: #E8F5E9; color: #2E7D32; }
         .dimension-tag.promotion { background: #FFF3E0; color: #E65100; }
         .dimension-tag.transfer { background: #E3F2FD; color: #1565C0; }
         .dimension-tag.salary { background: #F3E5F5; color: #7B1FA2; }
@@ -3310,15 +3362,24 @@
         <div class="panel-content">
             <div class="category">
                 <div class="category-header">
+                    <span class="category-title">📖 产品概览</span>
+                </div>
+                <div class="command-list">
+                    <div class="command-card overview" onclick="sendCommandFromPanel('产品概述')">产品概述</div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
                     <span class="category-title">📋 考勤与人事查询</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('今日考勤')">今日考勤</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('异常考勤人员')">异常考勤人员</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('门店有多少人')">门店有多少人</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('张三的员工画像')">张三的员工画像</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('后厨人员花名册')">后厨人员花名册</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('查看人事评价排行榜')">查看人事评价排行榜</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('今天出勤情况怎么样')">今天出勤情况怎么样</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('今天有哪些人考勤异常')">今天有哪些人考勤异常</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('店里的编制满没满')">店里的编制满没满</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('帮我调一下张三的人事档案')">帮我调一下张三的人事档案</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('后厨现在有哪些人')">后厨现在有哪些人</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('这个月的评价排名出来了吗')">这个月的评价排名出来了吗</div>
                 </div>
             </div>
 
@@ -3327,10 +3388,10 @@
                     <span class="category-title">📄 合同与试用期</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('合同到期提醒')">合同到期提醒</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('试用期到期')">试用期到期</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('本月离职情况')">本月离职情况</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('张三的合同信息')">张三的合同信息</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('最近有哪些人合同要到期了')">最近有哪些人合同要到期了</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('谁快转正了')">谁快转正了</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('这个月走了几个人')">这个月走了几个人</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('张三的合同什么时候到期')">张三的合同什么时候到期</div>
                 </div>
             </div>
 
@@ -3339,10 +3400,10 @@
                     <span class="category-title">⚠️ 预警与审批</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('今日预警')">今日预警</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('待我审批')">待我审批</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('门店缺编情况')">门店缺编情况</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('离职风险预警')">离职风险预警</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('今天有什么需要我处理的事')">今天有什么需要我处理的事</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('有哪些审批还没处理')">有哪些审批还没处理</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('哪个店还在缺人')">哪个店还在缺人</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('最近有离职倾向的员工吗')">最近有离职倾向的员工吗</div>
                 </div>
             </div>
 
@@ -3351,9 +3412,9 @@
                     <span class="category-title">💰 成本与薪酬</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('本月人力成本')">本月人力成本</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('张三的薪资')">张三的薪资</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('本月薪资报表')">本月薪资报表</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('这个月工资花了多少钱')">这个月工资花了多少钱</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('张三现在拿多少钱')">张三现在拿多少钱</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('这个月的薪资报表出来了吗')">这个月的薪资报表出来了吗</div>
                 </div>
             </div>
 
@@ -3362,10 +3423,10 @@
                     <span class="category-title">🎯 人才与培训</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('新店人才推荐')">新店人才推荐</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('人才对比：张三和李四')">人才对比：张三和李四</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('张三的培训记录')">张三的培训记录</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('后备人才库')">后备人才库</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('新店急需1个店长')">新店急需1个店长</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('帮我对比一下张三和李四谁更合适')">帮我对比一下张三和李四谁更合适</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('张三参加了哪些培训')">张三参加了哪些培训</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('公司现在有哪些储备人才')">公司现在有哪些储备人才</div>
                 </div>
             </div>
 
@@ -3374,9 +3435,9 @@
                     <span class="category-title">📊 报告与规则</span>
                 </div>
                 <div class="command-list">
-                    <div class="command-card" onclick="sendCommandFromPanel('生成人力日报')">生成人力日报</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('人事规则查询')">人事规则查询</div>
-                    <div class="command-card" onclick="sendCommandFromPanel('帮厨的岗位说明书')">帮厨的岗位说明书</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('给我看一下今天的人力日报')">给我看一下今天的人力日报</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('迟到旷工怎么处罚')">迟到旷工怎么处罚</div>
+                    <div class="command-card" onclick="sendCommandFromPanel('帮厨岗位有什么要求')">帮厨岗位有什么要求</div>
                 </div>
             </div>
         </div>
@@ -3414,10 +3475,10 @@
                 </div>
                 
                 <div class="quick-actions">
-                    <div class="quick-scroll">
+                    <div class="quick-scroll" id="quick-scroll">
                         <button class="quick-btn quick-attendance" onclick="executeQuickAction('attendance')">
                             <span>📋</span>
-                            <span>今日考勤</span>
+                            <span>出勤情况</span>
                         </button>
                         <button class="quick-btn quick-contract" onclick="executeQuickAction('contract')">
                             <span>📄</span>
@@ -3425,28 +3486,38 @@
                         </button>
                         <button class="quick-btn quick-probation" onclick="executeQuickAction('probation')">
                             <span>⏳</span>
-                            <span>试用期到期</span>
+                            <span>谁快转正</span>
                         </button>
                         <button class="quick-btn quick-resignation" onclick="executeQuickAction('resignation')">
                             <span>📉</span>
-                            <span>本月离职</span>
+                            <span>走了几人</span>
                         </button>
                         <button class="quick-btn quick-warning" onclick="executeQuickAction('warning')">
                             <span>⚠️</span>
-                            <span>今日预警</span>
+                            <span>今日要事</span>
                         </button>
                         <button class="quick-btn quick-report" onclick="executeQuickAction('report')">
                             <span>📊</span>
-                            <span>生成日报</span>
+                            <span>人力日报</span>
                         </button>
                         <button class="quick-btn quick-cost" onclick="executeQuickAction('cost')">
                             <span>💰</span>
-                            <span>本月成本</span>
+                            <span>薪资成本</span>
                         </button>
                         <button class="quick-btn quick-approval" onclick="executeQuickAction('approval')">
                             <span>📋</span>
-                            <span>待我审批</span>
+                            <span>待审批</span>
                         </button>
+                    </div>
+                </div>
+                <div class="talent-prompt-bar" id="talent-prompt-bar" style="display:none;padding:6px 14px;background:#F5F7FA;border-top:1px solid #E8E8E8;">
+                    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;">
+                        <span class="suggest-tag" onclick="sendTalentPrompt('店在上海')">📍店在上海</span>
+                        <span class="suggest-tag" onclick="sendTalentPrompt('重点看团队管理')">👥重点看团队管理</span>
+                        <span class="suggest-tag" onclick="sendTalentPrompt('对比前两名')">⚖️对比候选人</span>
+                        <span class="suggest-tag" onclick="sendTalentPrompt('重点看经营能力')">💰重点看经营</span>
+                        <span class="suggest-tag" onclick="sendTalentPrompt('换个岗位')">🔄换个岗位</span>
+                        <span class="suggest-tag" onclick="sendTalentPrompt('放宽条件')">🔓放宽条件</span>
                     </div>
                 </div>
             </div>
@@ -3552,7 +3623,7 @@
                     isRecording = false;
                     inputField.placeholder = '识别中...';
                     setTimeout(() => {
-                        inputField.value = '今日考勤';
+                        inputField.value = '今天出勤情况怎么样';
                         inputField.placeholder = '问问AI';
                         checkSendButton();
                     }, 1000);
@@ -3579,7 +3650,38 @@
             scrollToBottom();
         }
 
-        function addResultCard(cardContent) {
+        function getSuggestions(command) {
+            const map = {
+                '今天出勤情况怎么样': ['今天有哪些人考勤异常', '谁快转正了', '今天有什么需要我处理的事'],
+                '今天有哪些人考勤异常': ['今天出勤情况怎么样', '迟到旷工怎么处罚', '最近有离职倾向的员工吗'],
+                '店里的编制满没满': ['哪个店还在缺人', '这个月走了几个人', '今天有什么需要我处理的事'],
+                '帮我调一下张三的人事档案': ['张三现在拿多少钱', '张三参加了哪些培训', '张三的合同什么时候到期'],
+                '后厨现在有哪些人': ['店里的编制满没满', '新店急需1个店长', '公司现在有哪些储备人才'],
+                '这个月的评价排名出来了吗': ['帮我调一下张三的人事档案', '新店急需1个店长', '谁快转正了'],
+                '最近有哪些人合同要到期了': ['谁快转正了', '张三的合同什么时候到期', '今天有什么需要我处理的事'],
+                '谁快转正了': ['最近有哪些人合同要到期了', '帮我调一下张三的人事档案', '今天有什么需要我处理的事'],
+                '这个月走了几个人': ['最近有离职倾向的员工吗', '店里的编制满没满', '迟到旷工怎么处罚'],
+                '张三的合同什么时候到期': ['帮我调一下张三的人事档案', '最近有哪些人合同要到期了', '谁快转正了'],
+                '今天有什么需要我处理的事': ['今天出勤情况怎么样', '最近有哪些人合同要到期了', '有哪些审批还没处理'],
+                '有哪些审批还没处理': ['今天有什么需要我处理的事', '最近有离职倾向的员工吗', '哪个店还在缺人'],
+                '哪个店还在缺人': ['店里的编制满没满', '新店急需1个店长', '公司现在有哪些储备人才'],
+                '最近有离职倾向的员工吗': ['今天出勤情况怎么样', '今天有什么需要我处理的事', '这个月走了几个人'],
+                '这个月工资花了多少钱': ['这个月的薪资报表出来了吗', '张三现在拿多少钱', '店里的编制满没满'],
+                '张三现在拿多少钱': ['帮我调一下张三的人事档案', '这个月的薪资报表出来了吗', '张三的合同什么时候到期'],
+                '这个月的薪资报表出来了吗': ['这个月工资花了多少钱', '张三现在拿多少钱', '店里的编制满没满'],
+                '新店急需1个店长': ['店在上海', '重点看团队管理', '对比前两名'],
+                '帮我对比一下张三和李四谁更合适': ['新店急需1个店长', '公司现在有哪些储备人才', '张三参加了哪些培训'],
+                '张三参加了哪些培训': ['帮我调一下张三的人事档案', '张三现在拿多少钱', '帮厨岗位有什么要求'],
+                '公司现在有哪些储备人才': ['新店急需1个店长', '帮我对比一下张三和李四谁更合适', '哪个店还在缺人'],
+                '给我看一下今天的人力日报': ['今天出勤情况怎么样', '谁快转正了', '今天有什么需要我处理的事'],
+                '迟到旷工怎么处罚': ['今天有哪些人考勤异常', '今天出勤情况怎么样', '最近有离职倾向的员工吗'],
+                '帮厨岗位有什么要求': ['张三参加了哪些培训', '后厨现在有哪些人', '店里的编制满没满'],
+                '产品概述': ['今天出勤情况怎么样', '新店急需1个店长', '给我看一下今天的人力日报']
+            };
+            return map[command] || ['今天出勤情况怎么样', '今天有什么需要我处理的事', '给我看一下今天的人力日报'];
+        }
+
+        function addResultCard(cardContent, command) {
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message message-ai';
             
@@ -3593,6 +3695,17 @@
             
             messageDiv.appendChild(avatar);
             messageDiv.appendChild(bubble);
+
+            const suggestions = getSuggestions(command);
+            const suggestionsDiv = document.createElement('div');
+            suggestionsDiv.style.cssText = 'margin:6px 0 0 44px;';
+            suggestionsDiv.innerHTML = `
+            <div style="font-size:11px;color:#666;margin-bottom:4px;">💡 猜你想问</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    ${suggestions.map(q => `<span class="suggest-tag" onclick="sendCommandFromPanel('${q.replace(/'/g, "\\'")}')">${q}</span>`).join('')}
+                </div>
+            `;
+            messageDiv.appendChild(suggestionsDiv);
             
             chatContainer.appendChild(messageDiv);
             scrollToBottom();
@@ -3792,20 +3905,12 @@
             `);
         }
 
-        function showFullRanking() {
-            showDetailModal('🏆 完整排行榜', `
-                <div class="detail-section-title">📊 本月人事评价排名（Top 20）</div>
-                <div class="detail-row"><span class="detail-label">🥇 王五</span><span class="detail-value">收银 · 苏福记总店 · 92分</span></div>
-                <div class="detail-row"><span class="detail-label">🥈 赵六</span><span class="detail-value">领班 · 苏福记西单店 · 90分</span></div>
-                <div class="detail-row"><span class="detail-label">🥉 李四</span><span class="detail-value">服务员 · 苏福记3店 · 88分</span></div>
-                <div class="detail-row"><span class="detail-label">4. 张三</span><span class="detail-value">帮厨 · 苏福记西单店 · 85分</span></div>
-                <div class="detail-row"><span class="detail-label">5. 钱十一</span><span class="detail-value">服务员 · 苏福记总店 · 82分</span></div>
-                <div class="detail-row"><span class="detail-label">6. 孙七</span><span class="detail-value">收银 · 苏福记3店 · 78分</span></div>
-                <div class="detail-row"><span class="detail-label">7. 周八</span><span class="detail-value">保洁 · 苏福记总店 · 75分</span></div>
-                <div class="detail-row"><span class="detail-label">8. 吴九</span><span class="detail-value">切配 · 苏福记西单店 · 72分</span></div>
-                <div class="detail-row"><span class="detail-label">9. 郑十</span><span class="detail-value">炒锅 · 苏福记3店 · 70分</span></div>
-                <div class="detail-row"><span class="detail-label" style="color:#999;">… 剩余11人略</span><span class="detail-value" style="color:#999;font-size:11px;">完整排行可导出查看</span></div>
-            `);
+        function toggleFullRanking(el) {
+            const card = el.closest('.result-card');
+            const fullList = card.querySelector('#ranking-full');
+            const isHidden = fullList.style.display === 'none';
+            fullList.style.display = isHidden ? 'block' : 'none';
+            el.innerHTML = isHidden ? '收起完整排行榜 <span class="arrow">▾</span>' : '查看完整排行榜 <span class="arrow">›</span>';
         }
 
         function togglePortraitMore(id) {
@@ -3819,28 +3924,28 @@
 
         function showCandidateDetail(type) {
             const contents = {
-                '店长': `<div class="detail-section-title">🎯 店长候补人选</div>
-                    <div class="detail-row"><span class="detail-label">李四（西单店）</span><span class="detail-value">领班·P2 · 88分</span></div>
-                    <div class="detail-row"><span class="detail-label">王五（国贸店）</span><span class="detail-value">领班·P2 · 85分</span></div>
+                '店长': `<div class="detail-section-title">🎯 店长候补人选（基于六大维度）</div>
+                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班·P2 · 90分 · ⚠️无跨店经历</span></div>
+                    <div class="detail-row"><span class="detail-label">孙七（3店）</span><span class="detail-value">领班·P2 · 78分 · ⚠️经营实绩偏低</span></div>
                     <div class="view-more" style="padding:4px 0 0;justify-content:flex-start;">完整候补名单可联系HR获取 <span class="arrow">›</span></div>`,
-                '主管': `<div class="detail-section-title">🎯 主管候补人选</div>
-                    <div class="detail-row"><span class="detail-label">孙七（3店）</span><span class="detail-value">收银 · P2 · 78分</span></div>
-                    <div class="detail-row"><span class="detail-label">周八（总店）</span><span class="detail-value">保洁 · P1 · 75分</span></div>
-                    <div class="detail-row"><span class="detail-label">吴九（西单店）</span><span class="detail-value">切配 · P1 · 72分</span></div>
+                '主管': `<div class="detail-section-title">🎯 主管候补人选（基于六大维度）</div>
+                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班·P2 · 90分 · 胜任力优，团队管理良好</span></div>
+                    <div class="detail-row"><span class="detail-label">吴九（西单店）</span><span class="detail-value">切配·P1 · 72分 · ⚠️无跨店经历，整体维度待提升</span></div>
+                    <div class="detail-row"><span class="detail-label">郑十（3店）</span><span class="detail-value">炒锅·P1 · 70分 · ⚠️经营实绩不达标</span></div>
                     <div class="view-more" style="padding:4px 0 0;justify-content:flex-start;">完整候补名单可联系HR获取 <span class="arrow">›</span></div>`,
-                '核心储备': `<div class="detail-section-title">🔥 核心储备候补</div>
-                    <div class="detail-row"><span class="detail-label">钱十一（总店）</span><span class="detail-value">服务员 · P2 · 82分 · 晋升维度待提升</span></div>
-                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班 · P4 · 90分 · 调店经历待丰富</span></div>`,
+                '核心储备': `<div class="detail-section-title">🔥 核心储备候补（六大维度均优）</div>
+                    <div class="detail-row"><span class="detail-label">张三（西单店）</span><span class="detail-value">副店长·P3 · 92分 · 六维度全面领先</span></div>
+                    <div class="detail-row"><span class="detail-label">李四（3店）</span><span class="detail-value">领班·P2 · 88分 · 成长发展力需提升</span></div>`,
                 '重点培养': `<div class="detail-section-title">📈 重点培养候补</div>
-                    <div class="detail-row"><span class="detail-label">孙七（3店）</span><span class="detail-value">收银 · P2 · 78分 · 评价维度待提升</span></div>
-                    <div class="detail-row"><span class="detail-label">周八（总店）</span><span class="detail-value">保洁 · P1 · 75分 · 晋升维度待提升</span></div>
-                    <div class="detail-row"><span class="detail-label">吴九（西单店）</span><span class="detail-value">切配 · P1 · 72分 · 调店维度待提升</span></div>
-                    <div class="detail-row"><span class="detail-label">郑十（3店）</span><span class="detail-value">炒锅 · P1 · 70分 · 整体维度待提升</span></div>`,
+                    <div class="detail-row"><span class="detail-label">王五（总店）</span><span class="detail-value">领班·P2 · 85分 · 成长力↑但调店适应力未知</span></div>
+                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班·P2 · 90分 · 团队管理力强，经营实绩待提升</span></div>
+                    <div class="detail-row"><span class="detail-label">吴九（西单店）</span><span class="detail-value">切配·P1 · 72分 · 调店适应力待评估</span></div>
+                    <div class="detail-row"><span class="detail-label">郑十（3店）</span><span class="detail-value">炒锅·P1 · 70分 · 整体维度待提升</span></div>`,
                 '潜力观察': `<div class="detail-section-title">👀 潜力观察候补</div>
-                    <div class="detail-row"><span class="detail-label">张三（西单店）</span><span class="detail-value">帮厨 · P2 · 85分 · 新入库，待观察</span></div>
-                    <div class="detail-row"><span class="detail-label">李四（3店）</span><span class="detail-value">服务员 · P3 · 88分 · 新入库，待观察</span></div>
-                    <div class="detail-row"><span class="detail-label">王五（总店）</span><span class="detail-value">收银员 · P3 · 92分 · 晋升评估中</span></div>
-                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班 · P4 · 90分 · 晋升评估中</span></div>`
+                    <div class="detail-row"><span class="detail-label">张三（西单店）</span><span class="detail-value">帮厨·P2 · 85分 · 新入库，六大维度待观察</span></div>
+                    <div class="detail-row"><span class="detail-label">李四（3店）</span><span class="detail-value">服务员·P3 · 88分 · 新入库，待观察</span></div>
+                    <div class="detail-row"><span class="detail-label">王五（总店）</span><span class="detail-value">收银员·P3 · 92分 · 晋升评估中</span></div>
+                    <div class="detail-row"><span class="detail-label">赵六（西单店）</span><span class="detail-value">领班·P4 · 90分 · 晋升评估中</span></div>`
             };
             showDetailModal('🎯 候补人选', contents[type] || '暂无候补数据');
         }
@@ -3890,11 +3995,15 @@
         }
 
         function sendCommandFromPanel(command) {
+            resetTalentChat();
+            hideTalentPromptBar();
+            isTalentProcessing = false;
             const cards = document.querySelectorAll('.command-card');
             cards.forEach(card => card.classList.remove('selected'));
             
-            const clickedCard = event.target;
-            clickedCard.classList.add('selected');
+            if (event.target.classList.contains('command-card')) {
+                event.target.classList.add('selected');
+            }
             
             addMessage(command, true);
             showLogicPanel(command);
@@ -3904,145 +4013,145 @@
         }
 
         const logicData = {
-            '今日考勤': {
+            '今天出勤情况怎么样': {
                 title: '📋 C1 今日考勤',
                 sub: '触发功能：Q7考勤异常查询 · PRD 4.7',
-                sources: ['花名册(3.2.4)：应到人数 ✅', '考勤管理(3.3)每日统计：实到/迟到/早退/旷工 🔲'],
+                sources: ['花名册(3.2.4)：应到人数 ✅', '考勤管理(3.3)每日统计：实到/迟到/早退/旷工/漏打卡 🔲'],
                 steps: [
-                    '从花名册(3.2.4)取当前门店在职人员数（员工状态IN(正式/试用)，COUNT(*)） → 应到人数',
-                    '从考勤管理(3.3)每日统计取当日数据 → 出勤率 = 实到人数 / 应到人数 × 100%',
-                    '异常分类统计🔲：旷工(当日无打卡记录且非请假) > 连续迟到(从考勤3.3取近7天数据，连续2天及以上有迟到记录) > 单次迟到(仅当日迟到1次，近7天无其他) > 早退 > 漏打卡',
-                    '⚠️不用企业文化打卡(3.1.1)：3.1.1是日常打卡活动(企业文化类)，与考勤打卡无关',
+                    'Step 1：从花名册(3.2.4)取当前门店在职人员数（员工状态IN(正式/试用)，COUNT(*)） → 应到人数',
+                    'Step 2：从考勤管理(3.3)每日统计取当日数据 → 出勤率 = 实到人数 / 应到人数 × 100%',
+                    'Step 3：异常分类统计🔲——旷工(当日无打卡记录且非请假) > 连续迟到(从考勤3.3取近7天数据，连续2天及以上有迟到记录) > 单次迟到(仅当日迟到1次，近7天无其他) > 早退 > 漏打卡',
+                    '⚠️不用企业文化打卡(3.1.1)：3.1.1是日常打卡活动(企业文化类)，与考勤打卡无关，不应用于考勤统计',
                     '补充正面参照：从考勤(3.3)取出勤天数最多者 → "出勤之星"🔲，最多3人，按出勤天数降序'
                 ],
-                sort: '异常严重度：旷工>连续迟到>单次迟到>早退>漏打卡 > 同严重度按异常次数降序 > 同次数按姓名拼音升序',
-                limit: '异常列表最多10人（Top10+"共N人异常，查看全部"），出勤之星最多3人'
+                sort: '异常人员列表：1️⃣异常严重度：旷工>连续迟到>单次迟到>早退>漏打卡 2️⃣同严重度按异常次数降序 3️⃣同次数按姓名拼音升序 | 正面参照：出勤天数最多者降序🔲',
+                limit: '异常人员列表最多展示10人（Top10+"共N人异常，[查看全部]"按钮展开完整列表），出勤之星最多3人'
             },
-            '异常考勤人员': {
+            '今天有哪些人考勤异常': {
                 title: '📋 C2 异常考勤人员',
                 sub: '触发功能：Q7考勤异常查询 · PRD 4.7',
-                sources: ['考勤管理(3.3)每日统计：异常类型/次数/日期 🔲', '花名册(3.2.4)：姓名/岗位/所属组织 ✅', '奖惩规则(3.2.10.1)：类别=乐捐的规则 ✅'],
+                sources: ['考勤管理(3.3)每日统计：异常类型/次数/日期 🔲', '花名册(3.2.4)：姓名/岗位/所属组织 ✅', '奖惩规则(3.2.10.1)：类别=乐捐的规则，默认金额 ✅'],
                 steps: [
-                    '从考勤管理(3.3)取异常人员数据 → 按异常类型分组',
-                    '关联花名册(3.2.4)补全姓名/岗位/所属组织',
-                    '检查奖惩规则(3.2.10.1)中是否有对应的乐捐规则 → 标注"可能触发乐捐"',
-                    '计算每人异常总次数 = 各类型异常次数之和',
-                    '标注异常严重等级：旷工=严重 > 连续迟到=较重 > 单次迟到=一般 > 早退/漏打卡=轻微'
+                    'Step 1：从考勤管理(3.3)取异常人员数据 → 按异常类型分组',
+                    'Step 2：关联花名册(3.2.4)补全姓名、岗位、所属组织',
+                    'Step 3：检查奖惩规则(3.2.10.1)中是否有"旷工"对应的乐捐规则 → 标注"可能触发乐捐"',
+                    'Step 4：计算每人异常总次数 = 各类型异常次数之和',
+                    'Step 5：标注异常严重等级：旷工=严重 > 连续迟到=较重 > 单次迟到=一般 > 早退/漏打卡=轻微'
                 ],
-                sort: '异常严重度降序 > 异常次数降序 > 姓名拼音升序',
-                limit: '异常列表最多15人，每类最多5人'
+                sort: '异常人员列表：1️⃣异常严重度：旷工>连续迟到>单次迟到>早退>漏打卡 2️⃣同严重度按异常次数降序 3️⃣同次数按姓名拼音升序',
+                limit: '异常人员列表最多展示15人（Top15+"共N人异常，[查看全部]"），按异常类型分组每类最多展示5人（每类显示"+N人"折叠）'
             },
-            '门店有多少人': {
+            '店里的编制满没满': {
                 title: '📋 C3 门店有多少人',
                 sub: '触发功能：Q1花名册查询 · PRD 4.1',
                 sources: ['花名册(3.2.4)：姓名/岗位/职级/员工类型/状态/学历 ✅', '组织架构(3.15)：在职人数/编制额度 ✅', '入职管理(3.2.3)：入职日期 ✅', '离职管理(3.2.8)：离职生效日期 ✅'],
                 steps: [
-                    '从花名册(3.2.4)取在职人员，COUNT(*) = 总人数',
-                    'GROUP BY 岗位/职级/状态/类型/学历 分别统计分布',
-                    '如组织架构(3.15)有数据：编制完成率 = 在职人数/编制额度 × 100%',
-                    '近30天入职/离职数量统计',
-                    '流失率 = 近30天离职 / (当前在职人数 + 近30天离职 - 近30天入职) × 100%（⚠️花名册无历史快照，用推算法）'
+                    'Step 1：从花名册(3.2.4)取在职人员，COUNT(*) = 总人数',
+                    'Step 2：GROUP BY 岗位/职级/状态/类型/学历 分别统计分布',
+                    'Step 3：如组织架构(3.15)有数据：编制完成率 = 在职人数/编制额度 × 100%',
+                    'Step 4：近30天入职/离职数量统计（入职管理3.2.3+离职管理3.2.8）',
+                    'Step 5：流失率 = 近30天离职人数 / (当前在职人数 + 近30天离职人数 - 近30天入职人数) × 100%（⚠️花名册无历史快照，月初在职≈当前在职+期间离职-期间入职）'
                 ],
-                sort: '岗位分布/学历分布按人数降序，职级按从高到低（P5→P1），状态按正式>试用期>实习',
-                limit: '分布统计全部展示（人数少无需限制）；人员明细默认折叠，点击展开后分页展示，每页20人'
+                sort: '岗位分布按人数降序，职级分布按职级从高到低（P5→P1），状态分布按正式>试用期>实习，学历分布按人数降序',
+                limit: '分布统计全部展示（人数少无需限制）；人员明细默认折叠，点击"展开详情"后分页展示，每页20人'
             },
-            '张三的员工画像': {
+            '帮我调一下张三的人事档案': {
                 title: '📋 C4 员工画像',
                 sub: '触发功能：P1-P9员工画像 · PRD 4.13',
-                sources: ['花名册(3.2.4)：基础信息/合同类型/学历 ✅', '打卡统计(3.1.1)：连续打卡天数 ✅', '考勤管理(3.3)：出勤率/异常次数 🔲', '薪资档案(3.4.4)：薪资总额/历史变动 ✅', '调动管理(3.2.6)+借调(3.2.7)：晋升/调动记录 ✅', '岗位学习管理(3.9.3)：培训记录 ⚠️', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/排名 ✅', '电子合同(3.6)：合同期限 🔲'],
+                sources: ['花名册(3.2.4)：基础信息/合同类型/学历 ✅', '打卡统计(3.1.1)：连续打卡天数 ✅', '考勤管理(3.3)：出勤率/异常次数 🔲', '薪资档案(3.4.4)：薪资总额/历史变动 ✅', '调动管理(3.2.6)+借调(3.2.7)：晋升/调动记录 ✅', '岗位学习管理(3.9.3)：培训记录 ⚠️（员工维度）', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/排名 ✅', '电子合同(3.6)：合同期限 🔲'],
                 steps: [
-                    'P1基础信息：年龄=DATEDIFF(当前日期,出生日期)/365（精确到岁，生日前不虚增）；司龄=DATEDIFF(当前日期,入职日期)/365；学历直接取花名册',
-                    'P2合同状态：合同类型+签署状态从花名册取✅；到期日优先从电子合同(3.6)取签署日期+期限🔲；兜底用入职日期+合同类型默认期限推算',
-                    'P3考勤：出勤率从考勤(3.3)取🔲；连续打卡从3.1.1取✅',
-                    'P4薪资档位：薪资总额从3.4.4取✅；薪资标准区间从3.4.3详情取🔲',
+                    'P1基础信息：年龄=DATEDIFF(当前日期,出生日期)/365（精确到岁，生日前不虚增）；司龄=DATEDIFF(当前日期,入职日期)/365；学历直接取花名册字段',
+                    'P2合同状态：合同类型+签署状态从花名册取✅；合同到期日优先从电子合同(3.6)取签署日期+期限🔲；兜底用入职日期+合同类型默认期限推算',
+                    'P3考勤：出勤率从考勤(3.3)取🔲；连续打卡天数从3.1.1取✅',
+                    'P4薪资档位：薪资总额从3.4.4取✅；薪资标准区间从3.4.3"查看"详情取🔲',
                     'P5调薪记录：点薪资档案"详情"取历史变动✅',
-                    'P6晋升轨迹：筛选调动类型=晋升的记录，按生效时间排序✅',
-                    'P7调动记录：合并调动(3.2.6)和借调(3.2.7)记录✅',
-                    'P8培训记录：从岗位学习管理(3.9.3)按员工ID取记录（员工维度），3.9.6作为任务详情补充',
-                    'P9评价趋势：从评价记录取近6月评分，计算趋势✅'
+                    'P6晋升轨迹：筛选调动类型=晋升的记录，按调动生效时间排序✅',
+                    'P7调动记录：合并调动记录(3.2.6)和借调记录(3.2.7)✅',
+                    'P8培训记录：⚠️从岗位学习管理(3.9.3)按员工ID取培训记录（员工维度），3.9.6作为任务详情补充',
+                    'P9评价趋势：从评价记录(3.2.11.3)取近6月评分，计算趋势✅'
                 ],
-                sort: '轨迹/记录按时间升序，培训按进行中>未开始>已结束排序，评价按时间升序',
-                limit: '晋升/调动最多10条（超过显示"查看完整"），培训最多5条，评价最近6个月'
+                sort: 'P6/P7按时间升序，P8按任务状态：进行中>未开始>已结束 > 同状态按任务完成率降序，P9按评价时间升序',
+                limit: 'P6/P7最多10条（超过显示"查看完整"），P8最多5条（超过显示"+N门课程，[查看全部]"），P9最近6个月'
             },
-            '后厨人员花名册': {
+            '后厨现在有哪些人': {
                 title: '📋 C5 后厨人员花名册',
                 sub: '触发功能：Q1花名册查询 · PRD 4.1',
                 sources: ['花名册(3.2.4)：姓名/岗位/职级/学历 ✅', '组织架构(3.15)：编制额度 ✅'],
                 steps: [
-                    '从花名册(3.2.4)筛选岗位属于后厨岗位列表的人员',
-                    '统计后厨总人数、岗位分布、职级分布、学历分布',
-                    '编制对照同C3'
+                    'Step 1：从花名册(3.2.4)筛选岗位属于后厨岗位列表的人员',
+                    'Step 2：统计后厨总人数、岗位分布、职级分布、学历分布',
+                    'Step 3：编制对照同C3'
                 ],
-                sort: '按职级降序（高职级在前），同职级按入职日期升序',
+                sort: '按职级降序（高职级在前），同职级按入职日期升序（老员工在前）',
                 limit: '分页展示，每页20人'
             },
-            '查看人事评价排行榜': {
-                title: '📋 C6 查看人事评价排行榜',
+            '这个月的评价排名出来了吗': {
+                title: '📋 C6 人事综合评分排行榜',
                 sub: '触发功能：Q2人事评价查询 · PRD 4.2',
                 sources: ['评价排行榜(3.2.11.1)：排名/姓名/总分 ✅', '评价记录(3.2.11.3)：评价人/时间/评分总分 ✅', '评分项设置(3.2.11.2)：评分项名称/类型/分值 ✅'],
                 steps: [
-                    '从排行榜(3.2.11.1)按门店+月份取排名数据',
-                    '按评分总分降序排列',
-                    '追问某员工 → 从评价记录(3.2.11.3)展开：评价人/时间/评分总分',
-                    '分项得分(认知/技能/附加/扣分)：评价记录只确认有"评分总分"，分项是否存储🔲待确认。如不存储则从评分项设置(3.2.11.2)的结构推算'
+                    'Step 1：从排行榜(3.2.11.1)按门店+月份取排名数据',
+                    'Step 2：按评分总分降序排列',
+                    'Step 3：追问某员工 → 从评价记录(3.2.11.3)展开：评价人、评价时间、评分总分',
+                    'Step 4：分项得分(认知/技能/附加/扣分)：评价记录只确认有"评分总分"，分项是否存储🔲待确认。如不存储则从评分项设置(3.2.11.2)的结构推算'
                 ],
                 sort: '按评分总分降序',
                 limit: '排行榜最多前20名，明细最多5次评价'
             },
-            '合同到期提醒': {
+            '最近有哪些人合同要到期了': {
                 title: '📄 H1 合同到期提醒',
                 sub: '触发功能：Q8/W2 · PRD 4.8',
                 sources: ['花名册(3.2.4)：合同类型/签署状态/入职日期 ✅', '电子合同(3.6)：签署日期/合同期限 🔲'],
                 steps: [
-                    '从花名册(3.2.4)取合同签署状态≠"未发起"的人员',
-                    '到期日计算：优先方案从电子合同(3.6)取签署日期+期限🔲；兜底用入职日期+合同类型默认期限（⚠️默认期限需根据企业实际规则配置，常见：劳动合同1/3年、实习协议1年）✅',
-                    '剩余天数 = 到期日 - 当前日期',
-                    '筛选30天内到期，按剩余天数升序排列'
+                    'Step 1：从花名册(3.2.4)取合同签署状态≠"未发起"的人员',
+                    'Step 2：到期日计算——优先方案从电子合同(3.6)取签署日期+期限🔲；兜底用入职日期+合同类型默认期限（⚠️默认期限需根据企业实际规则配置，常见：劳动合同1/3年、实习协议1年）✅',
+                    'Step 3：剩余天数 = 到期日 - 当前日期',
+                    'Step 4：筛选30天内到期，按剩余天数升序排列'
                 ],
                 sort: '剩余天数升序（最紧急在前）> 姓名拼音',
                 limit: '紧急到期(7天内)全部展示，重要到期(8-30天)最多10人'
             },
-            '试用期到期': {
+            '谁快转正了': {
                 title: '📄 H2 试用期到期',
                 sub: '触发功能：W1试用期到期预警 · PRD 4.18',
                 sources: ['转正管理(3.2.5)：姓名/岗位/入职日期/试用期/转正生效日期 ✅', '评价记录(3.2.11.3)：评分总分 ✅', '考勤管理(3.3)：出勤率/异常次数 🔲'],
                 steps: [
-                    '从转正管理(3.2.5)取办理状态≠"已转正"的人员',
-                    '到期日 = 入职日期 + 试用期（⚠️试用期字段格式未确认——可能是天数或月数，需统一转换为日期再计算）',
-                    '剩余天数 = 到期日 - 当前日期',
-                    '筛选15天内到期',
-                    '补充试用期表现：关联评价记录取评分✅；关联考勤取出勤率🔲'
+                    'Step 1：从转正管理(3.2.5)取办理状态≠"已转正"的人员',
+                    'Step 2：到期日 = 入职日期 + 试用期（⚠️试用期字段格式未确认——可能是天数或月数，需统一转换为日期再计算）',
+                    'Step 3：剩余天数 = 到期日 - 当前日期',
+                    'Step 4：筛选15天内到期',
+                    'Step 5：补充试用期表现——关联评价记录取评分✅；关联考勤取出勤率🔲'
                 ],
                 sort: '剩余天数升序 > 入职日期升序',
                 limit: '全部展示（试用期到期通常<20人），每人最近3次评价'
             },
-            '本月离职情况': {
+            '这个月走了几个人': {
                 title: '📄 H3 本月离职情况',
                 sub: '触发功能：Q5离职查询 · PRD 4.5',
                 sources: ['离职管理(3.2.8)：姓名/岗位/离职生效日期/离职原因/黑名单标记 ✅', '花名册(3.2.4)：所属组织/员工类型 ✅'],
                 steps: [
-                    '从离职管理(3.2.8)取本月离职生效人员',
-                    '离职率 = 本月离职人数 / (当前在职人数 + 本月离职人数 - 本月入职人数) × 100%（⚠️花名册无历史快照，月初在职需推算）',
-                    '按离职原因/岗位/所属组织分别GROUP BY统计',
-                    '黑名单人数统计',
-                    '司龄分布：<3月/3-6月/6-12月/1-3年/>3年'
+                    'Step 1：从离职管理(3.2.8)取本月离职生效人员',
+                    'Step 2：离职率 = 本月离职人数 / (当前在职人数 + 本月离职人数 - 本月入职人数) × 100%（⚠️月初在职需推算）',
+                    'Step 3：按离职原因/岗位/所属组织分别GROUP BY统计',
+                    'Step 4：黑名单人数统计',
+                    'Step 5：司龄分布：<3月/3-6月/6-12月/1-3年/>3年'
                 ],
                 sort: '原因/岗位按人数降序，人员明细按离职日期降序',
                 limit: '人员明细最多15人'
             },
-            '张三的合同信息': {
+            '张三的合同什么时候到期': {
                 title: '📄 H4 张三的合同信息',
                 sub: '触发功能：Q8(单人) · PRD 4.8',
                 sources: ['花名册(3.2.4)：合同类型/入职日期 ✅', '电子合同(3.6)：签署日期/合同期限 🔲'],
                 steps: [
-                    '取张三的合同信息，同H1计算逻辑',
-                    '到期日计算：优先电子合同🔲，兜底入职日期+默认期限✅',
-                    '展示完整合同状态卡片'
+                    'Step 1：取张三的合同信息，同H1计算逻辑',
+                    'Step 2：到期日计算——优先电子合同🔲，兜底入职日期+默认期限✅',
+                    'Step 3：展示完整合同状态卡片'
                 ],
                 sort: '不适用（单人员工）',
                 limit: '不适用（单人员工）'
             },
-            '今日预警': {
+            '今天有什么需要我处理的事': {
                 title: '⚠️ W1 今日预警',
                 sub: '触发功能：W1-W6汇总 · PRD 4.18-4.23',
                 sources: ['转正管理(3.2.5)：试用期到期 ✅', '花名册(3.2.4)+电子合同(3.6)：合同到期 🔲', '考勤管理(3.3)：考勤异常 🔲', '评价记录+考勤+奖惩+花名册：离职风险', '组织架构(3.15)：缺编预警 ✅', '黑名单管理(3.2.9)：黑名单预警 ✅'],
@@ -4057,35 +4166,35 @@
                 sort: '预警紧急度：高风险>中风险>低风险 > 同级别按影响人数降序',
                 limit: '6类预警全部展示，每类最多5人（超过显示"+N人，查看详情"）'
             },
-            '待我审批': {
+            '有哪些审批还没处理': {
                 title: '⚠️ W2 待我审批',
                 sub: '触发功能：Q9 OA审批查询 · PRD 4.9',
                 sources: ['OA审批台(3.5.2)审批中心：审批单名称/发起人/摘要/提交时间/状态 ✅'],
                 steps: [
-                    '从OA审批(3.5.2)审批中心取待我审批数据',
-                    '按状态分类：待我审批 > 审批中 > 已完成',
-                    '计算平均审批耗时',
-                    '标注超时审批（超过24小时未处理）'
+                    'Step 1：从OA审批(3.5.2)审批中心取待我审批数据',
+                    'Step 2：按状态分类：待我审批 > 审批中 > 已完成',
+                    'Step 3：计算平均审批耗时',
+                    'Step 4：标注超时审批（超过24小时未处理）'
                 ],
                 sort: '状态：待我审批>审批中>已完成；同状态按提交时间降序',
                 limit: '待我审批最多10条，我发起的最多5条'
             },
-            '门店缺编情况': {
+            '哪个店还在缺人': {
                 title: '⚠️ W3 门店缺编情况',
                 sub: '触发功能：Q4/W5 · PRD 4.4/4.22',
                 sources: ['组织架构(3.15)组织管理：编制额度/在职人数 ✅', '内推池管理(3.2.2)：期望岗位 ✅', '入职管理(3.2.3)：办理中入职 ✅'],
                 steps: [
-                    '从组织架构(3.15)取编制额度和在职人数',
-                    '缺编数 = 编制额度 - 在职人数',
-                    '缺编率 = 缺编数 / 编制额度 × 100%',
-                    '关联内推池(3.2.2)：按期望岗位匹配缺编岗位 → 候选人数',
-                    '关联入职管理(3.2.3)：办理中（办理状态≠"已入职"，⚠️办理状态具体值未确认） → 在途补充人数',
-                    '净缺编 = 缺编数 - 在途补充人数'
+                    'Step 1：从组织架构(3.15)取编制额度和在职人数',
+                    'Step 2：缺编数 = 编制额度 - 在职人数',
+                    'Step 3：缺编率 = 缺编数 / 编制额度 × 100%',
+                    'Step 4：关联内推池(3.2.2)：按期望岗位匹配缺编岗位 → 候选人数',
+                    'Step 5：关联入职管理(3.2.3)：办理中（办理状态≠"已入职"） → 在途补充人数',
+                    'Step 6：净缺编 = 缺编数 - 在途补充人数'
                 ],
                 sort: '缺编率降序（最缺的在前）> 同缺编率按编制额度降序（大门店优先）',
                 limit: '最多10个门店（超过显示"+N个门店，[查看全部]"），每店最多5个岗位'
             },
-            '离职风险预警': {
+            '最近有离职倾向的员工吗': {
                 title: '⚠️ W4 离职风险预警',
                 sub: '触发功能：W6离职风险预警 · PRD 4.23',
                 sources: ['评价记录(3.2.11.3)：评分下降 ✅', '考勤管理(3.3)：异常次数 🔲', '调动管理(3.2.6)：晋升停滞 ✅', '奖惩记录(3.2.10.2)：负面奖惩 ✅', '花名册(3.2.4)：司龄/职级 ✅', '薪资档案(3.4.4)：调薪停滞 ✅'],
@@ -4100,79 +4209,132 @@
                 sort: '风险等级：高风险>中风险>低风险 > 同等级按触发因子数降序 > 同因子数按姓名拼音',
                 limit: '高风险全部展示，中风险最多10人，低风险不展示（仅显示计数）'
             },
-            '本月人力成本': {
+            '这个月工资花了多少钱': {
                 title: '💰 S1 本月人力成本',
                 sub: '触发功能：Q3成本查询 · PRD 4.3',
                 sources: ['薪资档案(3.4.4)：薪资总额/历史变动 ✅', '花名册(3.2.4)：在职人数 ✅', '薪资标准(3.4.3)：岗位薪资区间 ✅；详情🔲'],
                 steps: [
-                    '从薪资档案(3.4.4)取全员薪资总额汇总 → 本月总人力成本',
-                    '人均成本 = 薪资总额 / 在职人数（⚠️薪资档案3.4.4可能含已离职未结算人员，在职人数应取花名册3.2.4当前在职且在职状态=在职的人员，两边口径需对齐）',
-                    '同比 = 本月总额 / 去年同月总额 - 1（从薪资档案详情取历史数据✅）',
-                    '环比 = 本月总额 / 上月总额 - 1',
-                    '成本占比需营业额数据（⚠️翻台宝无营收模块，需人工输入或对接外部数据）'
+                    'Step 1：从薪资档案(3.4.4)取全员薪资总额汇总 → 本月总人力成本',
+                    'Step 2：人均成本 = 薪资总额 / 在职人数（⚠️薪资档案3.4.4可能含已离职未结算人员，在职人数应取花名册3.2.4当前在职且在职状态=在职的人员，两边口径需对齐）',
+                    'Step 3：同比 = 本月总额 / 去年同月总额 - 1（从薪资档案详情取历史数据✅）',
+                    'Step 4：环比 = 本月总额 / 上月总额 - 1',
+                    'Step 5：成本占比需营业额数据（⚠️翻台宝无营收模块，需人工输入或对接外部数据）'
                 ],
                 sort: '按门店薪资总额降序',
                 limit: '最多展示前10个门店，超过折叠'
             },
-            '张三的薪资': {
+            '张三现在拿多少钱': {
                 title: '💰 S2 张三的薪资',
                 sub: '触发功能：P5 · PRD 4.13',
                 sources: ['薪资档案(3.4.4)：薪资总额/历史变动 ✅', '薪资标准(3.4.3)：岗位薪资区间 🔲', '同岗位薪资档案：薪资分布 ✅'],
                 steps: [
-                    '从薪资档案(3.4.4)取张三当前薪资总额',
-                    '从薪资档案"详情"取历史变动✅',
-                    '从薪资标准(3.4.3)取该岗位薪资区间 → 判断位置(下限/中位/上限)🔲',
-                    '取同岗位其他员工薪资 → 计算张三的薪资百分位',
-                    '调薪增速 = (最近一次-上一次) / 上一次 × 100%'
+                    'Step 1：从薪资档案(3.4.4)取张三当前薪资总额',
+                    'Step 2：从薪资档案"详情"取历史变动✅',
+                    'Step 3：从薪资标准(3.4.3)取该岗位薪资区间 → 判断位置(下限/中位/上限)🔲',
+                    'Step 4：取同岗位其他员工薪资 → 计算张三的薪资百分位',
+                    'Step 5：调薪增速 = (最近一次-上一次) / 上一次 × 100%'
                 ],
                 sort: '按调薪时间降序',
                 limit: '最近5次调薪记录'
             },
-            '本月薪资报表': {
+            '这个月的薪资报表出来了吗': {
                 title: '💰 S3 本月薪资报表',
-                sub: '触发功能：Q6(详细) · PRD 4.6',
-                sources: ['薪资档案(3.4.4)：姓名/所属组织/岗位/职级/薪资总额 ✅', '薪资标准(3.4.3)：岗位薪资区间 🔲'],
+                sub: '触发功能：Q6(详细)/Q3 · PRD 4.6/4.3',
+                sources: ['薪资档案(3.4.4)：姓名/所属组织/岗位/职级/薪资总额 ✅', '薪资标准(3.4.3)：岗位薪资区间 🔲', '花名册(3.2.4)：岗位/职级/员工类型 ✅'],
                 steps: [
-                    '从薪资档案(3.4.4)取全员薪资',
-                    '按岗位分组汇总：每岗人数/薪资总额/人均/最高/最低',
-                    '按职级分组汇总',
-                    '标注薪资异常：超出标准区间🔴 / 低于最低标准🟡',
-                    '与上月对比：环比增减额/增减率'
+                    'Step 1：从薪资档案(3.4.4)取全员本月薪资总额',
+                    'Step 2：按岗位/职级/组织/员工类型分别GROUP BY统计',
+                    'Step 3：从薪资标准(3.4.3)取各岗位薪资上限下限 → 缺口分析',
+                    'Step 4：薪资占比 = 对应维度薪资总额 / 总人力成本 × 100%'
                 ],
                 sort: '按岗位分组 > 组内按薪资总额降序',
-                limit: '每岗最多展示5人明细'
+                limit: '各维度统计全部展示，人员明细默认折叠（点击展开，每页20人）'
             },
-            '新店人才推荐': {
+            '新店开张，帮我推荐几个得力人手': {
                 title: '🎯 T1 新店人才推荐',
-                sub: '触发功能：T1 · PRD 4.15',
-                sources: ['调动管理(3.2.6)：晋升记录/调动类型 ✅', '借调管理(3.2.7)：借调记录 ✅', '薪资档案(3.4.4)+标准(3.4.3)：涨薪 ✅🔲', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/排名 ✅', '花名册(3.2.4)：岗位/职级/学历 ✅', '任职资格标准(3.2.Y) 🔲'],
+                sub: '触发功能：T1 · 六大维度体系 V3.0',
+                sources: ['花名册(3.2.4)：岗位/职级/学历/司龄/合同状态 ✅', '任职资格标准(3.2.Y)：年龄/学历/司龄/技能门槛 🔲', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/排名/趋势/分项 ✅', '奖惩记录(3.2.10.2)：近90天奖励/乐捐次数 ✅', '考勤管理(3.3)：迟到/早退/旷工次数 🔲', '数据分析·利润管理(3.10.5)：门店利润完成率 🔲', '数据分析·中差评管理(3.10.4)：门店中差评数 🔲', '巡店管理(3.7.1+3.7.6)：巡店评分+整改情况 🔲', '离职管理(3.2.8)：门店离职率/高绩效员工流失 ✅', '组织架构(3.15)：在职人数/编制额度 ✅', '调动管理(3.2.6)：跨店经历/调动类型/调动时间 ✅', '岗位学习管理(3.9.3)+培训任务(3.9.6)：培训完成度/证书 ✅', '薪资档案(3.4.4)+薪资标准(3.4.3)：薪资区间/调薪频率 ✅🔲'],
                 steps: [
-                    'Step 1·候选人筛选：从花名册按目标岗位筛选（岗位匹配或职级差1-2级，员工状态=正式/试用）',
-                    'Step 2·📈晋升维度：从调动管理(3.2.6)取晋升记录→晋升次数/职级差距/首次晋升用时',
-                    'Step 2·🔄调店维度：从调动+借调取跨店次数/借调经历；调动后首月评价vs门店均值对比',
-                    'Step 2·💰涨薪维度：从薪资档案详情取调薪记录→年均调薪次数/增速；vs薪资标准区间位置🔲',
-                    'Step 2·⭐评价维度：从评价记录取近6月评分均值/趋势；从排行榜取门店排名；分项短板🔲',
-                    'Step 3·任职资格匹配：年龄(出生日期✅)/学历(花名册✅)/经验(司龄✅)/技能(⚠️总分≠技能水平，分项🔲) vs 岗位标准',
-                    'Step 4·推荐决策引擎：①准入判断(任职资格硬线+评价≥70+状态正常)→进推荐池；②推荐标记(职级达标+评价≥85且非下降+无短板)→⭐推荐；③排序定序(⭐推荐>无标记>职级匹配度>评价分>跨店次数>司龄升序)',
-                    'Step 5·推荐理由生成：按判定结果自动组装(四维度均优/有弱项/评价下降/调店短板/涨薪受限 5种模板)'
+                    '【六大维度体系】新店店长推荐的核心问题：这个人放到一个全新门店，能不能快速把店开起来、带稳团队、跑通运营？',
+                    '',
+                    '▸ 维度一·👤 个人胜任力（底线判断——这个人行不行？）',
+                    '  · 职级匹配度：当前职级 vs 目标岗位职级（已达/差1级/差2级）— 花名册(3.2.4)',
+                    '  · 任职资格达标：年龄/学历/司龄是否满足目标岗位标准 — 任职资格标准(3.2.Y)🔲',
+                    '  · 人事评价水平：近6月评分均值+趋势（↑上升/→持平/↓下降）— 评价记录(3.2.11.3)✅',
+                    '  · 评价排名位置：门店内/区域内排名 — 排行榜(3.2.11.1)✅',
+                    '  · 奖惩记录：近90天奖励次数 vs 乐捐次数 — 奖惩记录(3.2.10.2)✅',
+                    '  · 技能分项得分：认知分/技能分/附加分/扣分项分布 — 评分项设置(3.2.11.2)+评价记录(3.2.11.3)',
+                    '  · 出勤稳定性：近6月迟到/早退/旷工次数 — 考勤管理(3.3)🔲',
+                    '',
+                    '▸ 维度二·🏪 门店经营实绩（关键验证——他管的店行不行？）',
+                    '  · 门店利润完成率：年度利润目标完成率（≥100%=优/80-100%=良/<80%=差）— 利润管理(3.10.5)🔲',
+                    '  · 门店中差评数：近月中差评数量及趋势 — 中差评管理(3.10.4)🔲',
+                    '  · 门店巡店评分：最近巡店得分+历史趋势 — 巡店分析(3.7.1)🔲',
+                    '  · 门店整改情况：未完成整改任务数+平均整改周期 — 整改任务(3.7.6)🔲',
+                    '  · 门店人力成本率：人力成本/营收（行业基准18-25%）— 薪资报表(3.4.1)+利润管理(3.10.5)🔲',
+                    '',
+                    '▸ 维度三·👥 团队管理力（新店关键——他带的团队行不行？）',
+                    '  · 门店离职率：近6月离职率（≤10%=优/10-20%=良/>20%=差）— 离职管理(3.2.8)GROUP BY组织✅',
+                    '  · 门店编制达成率：在职人数/编制额度（≥95%=满编/80-95%=正常/<80%=缺编）— 组织架构(3.15)✅',
+                    '  · 门店员工评价均分：该店全员评价均分 vs 公司均值 — 评价记录(3.2.11.3)GROUP BY组织✅',
+                    '  · 门店奖惩比：近6月奖励次数/乐捐次数 — 奖惩记录(3.2.10.2)GROUP BY组织✅',
+                    '  · 人才流失分析：高绩效员工流失率 — 人事数据看板(3.2.1)🔲',
+                    '  · 带教培养记录：是否有带教学员/学员出师率 — 带教管理(3.9.8)🔲',
+                    '',
+                    '▸ 维度四·🔄 调店适应力（风险判断——换个环境他行不行？）',
+                    '  · 跨店经历次数：调动记录中"前组织≠后组织"的次数 — 调动管理(3.2.6)✅',
+                    '  · 调动后表现变化：调动后首3月评价 vs 调动前3月评价 — 评价记录(3.2.11.3)✅',
+                    '  · 调动后门店恢复速度：离职率/编制恢复到正常水平的时间 — 离职管理(3.2.8)+组织架构(3.15)✅',
+                    '  · 调动类型分布：平调/晋升/降职各几次 — 调动管理(3.2.6)✅',
+                    '  · 跨区域/跨店型经历：是否有不同商圈类型/面积/品类的门店经历 — 调动管理(3.2.6)+组织架构(3.15)',
+                    '',
+                    '▸ 维度五·📚 成长发展力（未来判断——他在进步还是吃老本？）',
+                    '  · 评价趋势：近6月评分趋势（连续上升/持平/下降）— 评价记录(3.2.11.3)✅',
+                    '  · 晋升速度：从入职到当前职级的平均时间 vs 同岗位平均 — 花名册(3.2.4)+调动管理(3.2.6)✅',
+                    '  · 培训完成度：培训任务完成率+岗位学习进度 — 岗位学习管理(3.9.3)+培训任务(3.9.6)',
+                    '  · 证书获取：获取的技能/资格证书数量 — 培训任务(3.9.6)"已颁发证书"字段',
+                    '  · 技能分项变化：认知/技能分项的历史变化趋势 — 评分项设置(3.2.11.2)+评价记录(3.2.11.3)',
+                    '',
+                    '▸ 维度六·✅ 调动可行性（时机判断——现在调走合不合适？）',
+                    '  · 薪资激励空间：当前薪资在岗位标准区间的位置 — 薪资档案(3.4.4)+薪资标准(3.4.3)🔲',
+                    '  · 原门店稳定性：原门店编制达成率，调走后是否缺编 — 组织架构(3.15)✅',
+                    '  · 原门店继任者：是否有合格的副店长/主管可接替 — 花名册(3.2.4)+评价记录(3.2.11.3)',
+                    '  · 合同状态：合同即将到期/刚签署 — 花名册(3.2.4)合同签署状态✅',
+                    '  · 调薪频率：近1年调薪次数 — 薪资档案(3.4.4)详情',
+                    '  · 到新店距离/意愿：新店位置 vs 现居地距离 — 花名册(3.2.4)+组织架构(3.15)',
+                    '',
+                    'Step·决策逻辑链：',
+                    '  【准入判断】维度1·个人胜任力 + 维度2·门店经营实绩 → 任一不达标则排除',
+                    '  【分层推荐】维度3·团队管理力 + 维度4·调店适应力 + 维度5·成长发展力 → 拉开差距',
+                    '  【时机判断】维度6·调动可行性 → 决定是否现在调动',
+                    '',
+                    'Step·排序规则：',
+                    '  1️⃣⭐推荐 > 无标记（准入通过但非最优）> 候补',
+                    '  2️⃣同标记按"维度3+4+5"综合评分降序',
+                    '  3️⃣同分按司龄升序（成长快优先）',
+                    '',
+                    'Step·推荐理由模板：',
+                    '  · 六维度均优 → "六大维度表现全面，{最强维度}尤为突出，建议优先推荐"',
+                    '  · 有短板维度 → "个人胜任力/门店实绩优秀，但{短板维度}偏低，调店需关注{具体风险项}"',
+                    '  · 维度1或2不达标 → "个人胜任力/门店实绩未达标，暂不推荐"'
                 ],
-                sort: '1️⃣⭐推荐>无标记 2️⃣职级匹配度：已达>差1级>差2级 3️⃣评价总分降序 4️⃣跨店经历次数降序 5️⃣司龄升序（成长快优先）',
-                limit: '每岗最多3人（超过显示"+N人，[查看候补]"），每人四维度描述全部展示'
+                sort: '1️⃣⭐推荐>无标记 2️⃣综合评分(维度3+4+5)降序 3️⃣司龄升序（成长快优先）',
+                limit: '每岗最多3人（超过显示"+N人，[查看候补]"），每人六大维度描述全部展示，准入不达标者标注"⚠️不推荐"原因'
             },
-            '后备人才库': {
+            '公司现在有哪些储备人才': {
                 title: '🎯 T2 后备人才库',
-                sub: '触发功能：T2 · PRD 4.16',
-                sources: ['调动管理(3.2.6)：晋升记录 ✅', '借调管理(3.2.7)：借调记录 ✅', '薪资档案(3.4.4)：调薪记录 ✅', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/趋势 ✅', '培训任务(3.9.6)+证书(3.9.5) ✅'],
+                sub: '触发功能：T2 · 六大维度体系 V3.0',
+                sources: ['花名册(3.2.4)：岗位/职级/司龄 ✅', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/趋势/排名 ✅', '数据分析·利润管理(3.10.5) 🔲', '离职管理(3.2.8)：门店离职率 ✅', '组织架构(3.15)：编制达成率 ✅', '调动管理(3.2.6)：跨店经历 ✅', '岗位学习管理(3.9.3)+培训任务(3.9.6)：培训完成度 ✅', '薪资档案(3.4.4)：调薪记录 ✅'],
                 steps: [
-                    'Step 1·四维度入库判断：📈晋升(有晋升记录或职级距上限≥2级🔲)；🔄调店(非硬性要求，有则标注适应力)；💰涨薪(近1年有调薪记录)；⭐评价(综合评分≥80且近3月非下降趋势)',
-                    'Step 2·梯队划分：核心储备(四维度均无短板+评价≥90+趋势上升)→可随时晋升；重点培养(1-2个维度突出有短板)→6-12月可晋升；潜力观察(评价达标但其他维度不足)→1-2年观察期',
-                    'Step 3·推荐理由生成：核心储备→"四维度均优，{最突出维度}——可随时晋升{目标岗位}"；重点培养→"{突出维度}强，但{短板维度}偏低，建议后评估"；潜力观察→"评价达标，{缺数据维度}待观察"',
-                    'Step 4·培养跟踪联动：纳入计划(店长确认入库)>培训中(有进行中培训任务)>导师带教(已指定带教师傅)>轮岗实践(有跨店/跨岗经历)>晋升就绪(四维度无短板+评价持续上升)'
+                    'Step 1·六大维度入库判断：👤胜任力(职级匹配+评价≥70+奖惩正常)→可入库；🏪经营实绩(利润/巡店达标🔲)；👥团队管理(离职率+编制正常✅)；🔄调店适应(有跨店经历则标注)；📚成长发展(评价↑+培训完成度≥80%)；✅调动可行(薪资空间+原店可调)',
+                    'Step 2·梯队划分：核心储备(六维度均优+评价≥90+趋势↑)→可随时晋升；重点培养(2-3个维度突出有短板)→6-12月可晋升；潜力观察(评价达标但其他维度数据不足)→1-2年观察期',
+                    'Step 3·推荐理由生成：核心储备→"六大维度全面领先，{最强维度}尤为突出——可随时晋升{目标岗位}"；重点培养→"{突出维度}强，但{短板维度}偏低，建议后评估"；潜力观察→"评价达标，{缺数据维度}待观察"',
+                    'Step 4·培养跟踪联动：纳入计划(店长确认入库)>培训中(有进行中培训任务)>导师带教(已指定带教师傅)>轮岗实践(有跨店/跨岗经历)>晋升就绪(六维度无短板+评价持续上升)'
                 ],
-                sort: '梯队顺序：核心储备>重点培养>潜力观察；梯队内：1️⃣评价总分降序 2️⃣同分按晋升次数降序 3️⃣同次数按司龄升序（成长快优先）',
+                sort: '梯队顺序：核心储备>重点培养>潜力观察；梯队内：1️⃣评价总分降序 2️⃣同分按团队管理+经营实绩综合降序 3️⃣同分按司龄升序（成长快优先）',
                 limit: '核心储备全部展示，重点培养最多10人（超过显示"+N人"），潜力观察最多5人（超过显示"+N人，[查看全部]"）'
             },
-            '人才对比：张三和李四': {
+            '帮我对比一下张三和李四谁更合适': {
                 title: '🎯 T3 人才对比',
                 sub: '触发功能：T3 · PRD 4.17',
                 sources: ['调动管理(3.2.6)：晋升记录 ✅', '借调管理(3.2.7)：借调记录 ✅', '薪资档案(3.4.4)：调薪记录 ✅', '评价记录(3.2.11.3)+排行榜(3.2.11.1)：评分/排名 ✅'],
@@ -4184,47 +4346,49 @@
                 sort: '不适用（双人/多人对比，按维度逐项展示）',
                 limit: '最多5人同时对比'
             },
-            '张三的培训记录': {
+            '张三参加了哪些培训': {
                 title: '🎯 T4 张三的培训记录',
                 sub: '触发功能：P8 · PRD 4.13',
                 sources: ['岗位学习管理(3.9.3)：员工培训记录 ⚠️', '培训任务统计(3.9.6)：任务名称/状态/完课率/证书 ✅', '证书管理(3.9.5)：证书模板库（不含员工获证记录）⚠️'],
                 steps: [
-                    '从岗位学习管理(3.9.3)按员工ID取培训记录（员工维度），3.9.6作为任务详情补充',
-                    '按任务状态分组：进行中 / 未开始 / 已结束',
-                    '计算整体完课率 = 已完成课程数 / 总课程数',
-                    '已获证书从培训任务统计(3.9.6)的"已颁发证书"字段取',
-                    '标注未完成任务的剩余课程数和截止日期'
+                    'Step 1：从岗位学习管理(3.9.3)按员工ID取培训记录（员工维度），3.9.6作为任务详情补充',
+                    'Step 2：按任务状态分组：进行中 / 未开始 / 已结束',
+                    'Step 3：计算整体完课率 = 已完成课程数 / 总课程数',
+                    'Step 4：已获证书从培训任务统计(3.9.6)的"已颁发证书"字段取',
+                    'Step 5：标注未完成任务的剩余课程数和截止日期'
                 ],
                 sort: '任务状态：进行中>未开始>已结束 > 同状态按任务完成率降序',
                 limit: '培训任务最多5条（超过显示"+N门课程，查看全部"），证书全部展示'
             },
-            '生成人力日报': {
+            '给我看一下今天的人力日报': {
                 title: '📊 R1 人力日报',
-                sub: '触发功能：R1 · PRD 4.14',
-                sources: ['花名册(3.2.4)：在职人数/入职/离职 ✅', '考勤管理(3.3)：出勤率/异常人数 🔲', '组织架构(3.15)：编制额度/在职人数 ✅', '转正管理(3.2.5)：试用期到期 ✅', '奖惩记录(3.2.10.2)：当日奖惩 ✅', '花名册(3.2.4)+电子合同(3.6)：合同到期 🔲'],
+                sub: '触发功能：R1 · 含生日/入职周年提醒 V3.0',
+                sources: ['花名册(3.2.4)：在职人数/出生日期/入职日期/门店/岗位 ✅', '考勤管理(3.3)：出勤率/异常人数 🔲', '组织架构(3.15)：编制额度/在职人数 ✅', '转正管理(3.2.5)：试用期到期 ✅', '奖惩记录(3.2.10.2)：当日奖惩 ✅', '花名册(3.2.4)+电子合同(3.6)：合同到期 🔲'],
                 steps: [
+                    '🎂生日提醒：取花名册出生日期，过滤近3天生日员工，按生日时间>姓名拼音排序展示',
+                    '📅入职周年提醒：取花名册入职日期，过滤近3天入职周年员工，按入职年限降序>姓名拼音排序展示',
                     '人员概况：在职总人数/今日入职数/今日离职数/净增减',
                     '考勤概况🔲：出勤率/异常人数（旷工/迟到/早退）',
                     '编制情况：缺编门店数/最大缺编率门店',
                     '预警汇总：7天内合同到期人数/7天内试用期到期人数',
                     '奖惩动态：今日奖惩记录'
                 ],
-                sort: '不适用（按固定模块展示）',
+                sort: '生日：按生日时间>姓名拼音；入职周年：按入职年限降序>姓名拼音',
                 limit: '每模块最多3条关键项'
             },
-            '人事规则查询': {
+            '迟到旷工怎么处罚': {
                 title: '📊 R2 人事规则查询',
                 sub: '触发功能：Q10 · PRD 4.10',
                 sources: ['奖惩规则(3.2.10.1)：奖惩类型/金额 ✅', '评分项设置(3.2.11.2)：评分项名称/类型/分值 ✅', '标准字段配置：分类/字段名称 ✅', '人事规则(3.2.13) 🔲', '考勤规则 🔲'],
                 steps: [
-                    '用户提问关键词匹配 → 在以下数据源中搜索：奖惩规则/评分项设置/标准字段配置/人事规则/考勤规则',
-                    '按奖惩类型名称匹配✅ / 评分项名称匹配✅ / 分类字段匹配✅',
-                    '返回匹配的规则条目 + 来源模块'
+                    'Step 1：用户提问关键词匹配 → 在以下数据源中搜索：奖惩规则/评分项设置/标准字段配置/人事规则/考勤规则',
+                    'Step 2：按奖惩类型名称匹配✅ / 评分项名称匹配✅ / 分类字段匹配✅',
+                    'Step 3：返回匹配的规则条目 + 来源模块'
                 ],
                 sort: '按匹配度降序（最相关的规则排第一）',
                 limit: '最多展示3条匹配规则，超过显示"+N条相关规则"'
             },
-            '帮厨的岗位说明书': {
+            '帮厨岗位有什么要求': {
                 title: '📊 R3 帮厨岗位说明书',
                 sub: '触发功能：Q11 · PRD 4.11',
                 sources: ['任职资格标准(3.2.Y)：岗位/职级 ✅；详情🔲', '标准字段配置：技能资格/直属上级/岗位职责 ✅', '花名册(3.2.4)：年龄/学历/入职日期 ✅', '评价记录(3.2.11.3)：评分总分 ✅', '培训任务统计(3.9.6)：培训课程 ✅'],
@@ -4235,6 +4399,34 @@
                 ],
                 sort: '候选人列表：1️⃣任职资格达标率降序 2️⃣同达标率按评价总分降序 3️⃣同分按司龄升序（成长快优先）；当前在岗人员：按评价总分降序',
                 limit: '岗位说明书全部展示；候选人最多10人（超过显示"+N人，[查看全部]"）；在岗最多5人；培训最多5门'
+            },
+            '产品概述': {
+                title: '📖 P0 产品概述',
+                sub: '触发功能：P0 · PRD 1.1-1.4 · 产品定位/核心功能/角色权限',
+                sources: ['PRD-AI员工关系助手.md V3.0 · 2026-05-24'],
+                steps: [
+                    '【产品定位】HR的AI员工关系助手，通过自然语言交互提供员工关系管理的查询、预警、画像、推荐、报告能力',
+                    '',
+                    '【解决的核心问题】',
+                    '▸ 效率低：日常人事查询需登录后台、记忆菜单路径、手动筛选数据',
+                    '▸ 发现滞后：合同到期、试用期到期、考勤异常等依赖人工排查',
+                    '▸ 信息孤岛：评价、考勤、薪酬、培训数据分布在不同后台模块，难以形成统一认知',
+                    '',
+                    '【核心功能模块】',
+                    '▸ Q查询(11项)：花名册/人事评价/员工画像/缺编/离职/人力成本/考勤异常/合同到期/OA审批/人事规则/岗位说明书/组织架构编制',
+                    '▸ W预警(8项)：试用期到期/合同到期/考勤异常/人力成本/编制偏离/离职风险/生日提醒/入职周年',
+                    '▸ P画像(9项)：基础信息/评价/晋升路径/调薪/绩效/奖惩/考勤/培训/AI综合分析',
+                    '▸ T人才(3项)：新店人才推荐/后备人才库/人才对比',
+                    '▸ R报告(1项)：人力运营日报/周报',
+                    '▸ I交互(4项)：意图切换/快速指令/多轮对话/推送设置',
+                    '',
+                    '【用户角色与权限】',
+                                '▸ HR/总部：全部功能(Q/W/P/T/R) + I交互 → 全部数据',
+                    '',
+                    '【入口方式】在AI助手对话流中通过语义理解自动切换身份，无需独立入口'
+                ],
+                sort: '不适用（固定展示内容）',
+                limit: '全部展示'
             }
         };
 
@@ -4684,19 +4876,22 @@
             const cards = document.querySelectorAll('.command-card');
             cards.forEach(card => card.classList.remove('selected'));
             
+            resetTalentChat();
+            hideTalentPromptBar();
+            
             scrollToBottom();
         }
 
         async function executeQuickAction(action) {
             const actionMap = {
-                'attendance': '今日考勤',
-                'contract': '合同到期',
-                'probation': '试用期到期',
-                'resignation': '本月离职',
-                'warning': '今日预警',
-                'report': '生成日报',
-                'cost': '本月成本',
-                'approval': '待我审批'
+                'attendance': '今天出勤情况怎么样',
+                'contract': '最近有哪些人合同要到期了',
+                'probation': '谁快转正了',
+                'resignation': '这个月走了几个人',
+                'warning': '今天有什么需要我处理的事',
+                'report': '给我看一下今天的人力日报',
+                'cost': '这个月工资花了多少钱',
+                'approval': '有哪些审批还没处理'
             };
             
             const message = actionMap[action];
@@ -4706,6 +4901,7 @@
         }
 
         async function showWaitingState(message) {
+            isTalentProcessing = true;
             aiStatusText.textContent = '智能分析中';
             
             const waitingDiv = document.createElement('div');
@@ -4742,9 +4938,10 @@
             chatContainer.removeChild(waitingDiv);
             
             const result = generateResult(message);
-            addResultCard(result);
+            addResultCard(result, message);
             
             aiStatusText.textContent = '工作中';
+            isTalentProcessing = false;
         }
 
         function getTimeLabel() {
@@ -4770,7 +4967,7 @@
         }
 
         function generateResult(query) {
-            if (query.includes('画像')) {
+            if (query.includes('画像') || query.includes('人事档案') || query.includes('档案')) {
                 const match = query.match(/(张三|李四|王五|赵六|孙七|周八|吴九|郑十)/);
                 const employeeName = match ? match[1] : '张三';
                 return generatePortraitResult(employeeName);
@@ -4785,35 +4982,47 @@
                 const positionFilter = positionMatch ? positionMatch[1] : null;
                 return generateRosterResult(employeeName, storeName, positionFilter);
             }
-            
+
             const resultMap = {
-                '今日考勤': generateAttendanceResult(),
-                '异常考勤人员': generateAttendanceResult(),
-                '门店有多少人': generateRosterResult(null, '全部门店汇总'),
-                '张三的员工画像': generatePortraitResult('张三'),
-                '后厨人员花名册': generateRosterResult(null, '全部门店汇总', '后厨'),
-                '查看人事评价排行榜': generateEvaluationResult(),
-                '合同到期提醒': generateContractResult(),
-                '试用期到期': generateProbationResult(),
-                '本月离职情况': generateResignationResult(),
-                '张三的合同信息': generateContractDetailResult(),
-                '今日预警': generateWarningResult(),
-                '待我审批': generateApprovalResult(),
-                '门店缺编情况': generateStaffingResult(),
-                '离职风险预警': generateRiskResult(),
-                '本月人力成本': generateCostResult(),
-                '张三的薪资': generateSalaryResult(),
-                '本月薪资报表': generateSalaryReportResult(),
-                '新店人才推荐': generateTalentResult(),
-                '人才对比：张三和李四': generateCompareResult(),
-                '张三的培训记录': generateTrainingResult(),
-                '后备人才库': generateTalentPoolResult(),
-                '生成人力日报': generateReportResult(),
-                '人事规则查询': generateRuleResult(),
-                '帮厨的岗位说明书': generateJobDescriptionResult()
+                '今天出勤情况怎么样': generateAttendanceResult(),
+                '今天有哪些人考勤异常': generateAttendanceAnomalyResult(),
+                '店里的编制满没满': generateRosterResult(null, '全部门店汇总'),
+                '帮我调一下张三的人事档案': generatePortraitResult('张三'),
+                '后厨现在有哪些人': generateRosterResult(null, '全部门店汇总', '后厨'),
+                '这个月的评价排名出来了吗': generateEvaluationResult(),
+                '最近有哪些人合同要到期了': generateContractResult(),
+                '谁快转正了': generateProbationResult(),
+                '这个月走了几个人': generateResignationResult(),
+                '张三的合同什么时候到期': generateContractDetailResult(),
+                '今天有什么需要我处理的事': generateWarningResult(),
+                '有哪些审批还没处理': generateApprovalResult(),
+                '哪个店还在缺人': generateStaffingResult(),
+                '最近有离职倾向的员工吗': generateRiskResult(),
+                '这个月工资花了多少钱': generateCostResult(),
+                '张三现在拿多少钱': generateSalaryResult(),
+                '这个月的薪资报表出来了吗': generateSalaryReportResult(),
+                '帮我对比一下张三和李四谁更合适': generateCompareResult(),
+                '张三参加了哪些培训': generateTrainingResult(),
+                '公司现在有哪些储备人才': generateTalentPoolResult(),
+                '给我看一下今天的人力日报': generateReportResult(),
+                '迟到旷工怎么处罚': generateRuleResult(),
+                '帮厨岗位有什么要求': generateJobDescriptionResult(),
+                '产品概述': generateProductOverviewResult()
             };
+
+            if (resultMap[query]) {
+                resetTalentChat();
+                hideTalentPromptBar();
+                return resultMap[query];
+            }
+
+            const talentKeywords = ['店长', '推荐', '新店', '人才', '得力人手', '厨师长', '主管', '骨干'];
+            const isTalentQuery = talentKeywords.some(k => query.includes(k)) && !query.includes('对比') && !query.includes('培训') && !query.includes('储备');
+            if (isTalentQuery || talentChat.active) {
+                return handleTalentQuery(query);
+            }
             
-            return resultMap[query] || generateDefaultResult(query);
+            return generateDefaultResult(query);
         }
 
         function generateAttendanceResult() {
@@ -4822,13 +5031,13 @@
                 <div class="result-card">
                     <div class="card-header">
                         <div>
-                            <div class="card-title">📊 今日考勤</div>
+                            <div class="card-title">📊 今日出勤概览</div>
                             <div class="card-subtitle">${new Date().toLocaleDateString('zh-CN')}</div>
                         </div>
                         <div class="card-icon">📋</div>
                     </div>
                     <div class="card-body">
-                        <div class="card-stats">
+                        <div class="card-stats" style="grid-template-columns:repeat(3,1fr);">
                             <div class="stat-item">
                                 <div class="stat-value">95.3%</div>
                                 <div class="stat-label">出勤率</div>
@@ -4837,7 +5046,63 @@
                                 <div class="stat-value">128</div>
                                 <div class="stat-label">应到人数</div>
                             </div>
+                            <div class="stat-item">
+                                <div class="stat-value">122</div>
+                                <div class="stat-label">实到人数</div>
+                            </div>
                         </div>
+
+                        <div style="font-size:13px;font-weight:600;color:#1A1A1A;margin:10px 0 6px;">🏪 各店出勤情况</div>
+                        <table class="card-table">
+                            <tr><th>门店</th><th>应到</th><th>实到</th><th>出勤率</th></tr>
+                            <tr><td style="font-size:11px;color:#666;">总店</td><td>42</td><td>41</td><td><span class="badge badge-success">97.6%</span></td></tr>
+                            <tr><td style="font-size:11px;color:#666;">西单店</td><td>35</td><td>33</td><td><span class="badge badge-info">94.3%</span></td></tr>
+                            <tr><td style="font-size:11px;color:#666;">3店</td><td>51</td><td>48</td><td><span class="badge badge-warning">94.1%</span></td></tr>
+                        </table>
+
+              
+
+                        <div style="padding:8px 10px;background:#FFF7E6;border-radius:6px;font-size:12px;color:#D46B08;display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                            <span>⚠️</span>
+                            <span>共 <strong>11</strong> 人次异常考勤 · <a href="javascript:void(0)" onclick="sendCommandFromPanel('今天有哪些人考勤异常')" style="color:#4A90E2;text-decoration:underline;">查看详情</a></span>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="card-action-btn" onclick="sendCommandFromPanel('今天有哪些人考勤异常')">查看异常详情</button>
+                        </div>
+                        <div class="card-source">📅 数据时间：${timeLabel}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateAttendanceAnomalyResult() {
+            const timeLabel = getTimeLabel();
+            return `
+                <div class="result-card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">⚠️ 今日考勤异常</div>
+                            <div class="card-subtitle">${new Date().toLocaleDateString('zh-CN')} · 共11人次</div>
+                        </div>
+                        <div class="card-icon" style="color:#FA8C16;">⚠️</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-stats" style="grid-template-columns:repeat(3,1fr);">
+                            <div class="stat-item">
+                                <div class="stat-value" style="color:#FA8C16;">10</div>
+                                <div class="stat-label">迟到</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color:#F5222D;">1</div>
+                                <div class="stat-label">旷工</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" style="color:#666;">0</div>
+                                <div class="stat-label">早退/漏打卡</div>
+                            </div>
+                        </div>
+
                         <div class="tab-bar">
                             <span class="tab active" onclick="switchAttendanceTab(this, 'late')">迟到 <span style="font-size:10px;color:#FA8C16;">(10人)</span></span>
                             <span class="tab" onclick="switchAttendanceTab(this, 'absent')">旷工 <span style="font-size:10px;color:#F5222D;">(1人)</span></span>
@@ -4858,7 +5123,7 @@
                             </table>
                             <div class="card-highlight">
                                 <span>⚠️</span>
-                                <span>当日共 10 人次异常考勤 · 查看全部异常数据可点击下方链接</span>
+                                <span>当日共 10 人次异常考勤</span>
                             </div>
                         </div>
                         <div class="tab-panel absent">
@@ -4867,10 +5132,9 @@
                                 <tr><td>陈十三</td><td style="font-size:11px;color:#666;">西单店</td><td><span class="badge badge-danger">旷工</span></td><td>-</td></tr>
                             </table>
                         </div>
-                        <div class="view-more" onclick="showAttendanceDetail()"><span class="view-more-count">共11条异常</span> 查看全部异常数据 <span class="arrow">›</span></div>
                         <div class="card-actions">
-                            <button class="card-action-btn" onclick="showAttendanceDetail()">查看详情</button>
-                            <button class="card-action-btn" onclick="showContactModal()">联系员工</button>
+                            <button class="card-action-btn" onclick="showAttendanceDetail()">查看完整报表</button>
+                            <button class="card-action-btn" onclick="sendCommandFromPanel('今天出勤情况怎么样')">返回出勤概览</button>
                         </div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
                     </div>
@@ -4907,10 +5171,11 @@
                             <tr><td>周八</td><td style="font-size:11px;color:#666;">总店</td><td>保洁</td><td>2025-06-01</td></tr>
                         </table>
                         <div class="card-followup">
-                            <div class="followup-label">推荐操作</div>
+                            <div class="followup-label">💡 猜你想问</div>
                             <div class="followup-tags">
-                                <span class="followup-tag">批量续签提醒</span>
-                                <span class="followup-tag" onclick="showAllContracts()">查看全部合同</span>
+                                <span class="suggest-tag" onclick="sendCommandFromPanel('谁快转正了')">谁快转正了</span>
+                                <span class="suggest-tag" onclick="sendCommandFromPanel('这个月走了几个人')">这个月走了几个人</span>
+                                <span class="suggest-tag" onclick="sendCommandFromPanel('今天有什么需要我处理的事')">今天有什么需要我处理的事</span>
                             </div>
                         </div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
@@ -5105,8 +5370,120 @@
             `;
         }
 
+        var hrEmployees = [
+            { name: '陈小明', birthday: '05-27', hireDate: '2022-05-27', store: '西单店', position: '领班' },
+            { name: '李华', birthday: '05-28', hireDate: '2023-05-28', store: '国贸店', position: '主管' },
+            { name: '张伟', birthday: '05-29', hireDate: '2021-05-29', store: '总店', position: '店长' },
+            { name: '刘芳', birthday: '05-28', hireDate: '2024-05-28', store: '3店', position: '服务员' },
+            { name: '王磊', birthday: '05-27', hireDate: '2023-05-27', store: '大兴店', position: '厨师' },
+            { name: '赵强', birthday: '08-15', hireDate: '2021-05-27', store: '总店', position: '店长' },
+            { name: '孙丽', birthday: '09-20', hireDate: '2023-05-28', store: '国贸店', position: '主管' },
+            { name: '周杰', birthday: '03-10', hireDate: '2020-05-29', store: '西单店', position: '副店长' },
+            { name: '吴敏', birthday: '11-05', hireDate: '2024-05-27', store: '3店', position: '领班' },
+            { name: '郑浩', birthday: '07-18', hireDate: '2022-05-28', store: '总店', position: '厨师长' },
+            { name: '钱峰', birthday: '06-01', hireDate: '2019-06-01', store: '西单店', position: '厨师' },
+            { name: '周婷', birthday: '12-12', hireDate: '2022-08-01', store: '国贸店', position: '收银员' },
+            { name: '冯强', birthday: '01-25', hireDate: '2020-09-15', store: '大兴店', position: '领班' },
+            { name: '褚芳', birthday: '04-30', hireDate: '2023-11-01', store: '3店', position: '服务员' },
+            { name: '卫杰', birthday: '10-08', hireDate: '2021-03-01', store: '总店', position: '主管' }
+        ];
+
+        function getBirthdayReminders() {
+            var today = new Date();
+            var todayMMDD = ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+            var threeDaysLater = new Date(today);
+            threeDaysLater.setDate(today.getDate() + 2);
+            var limitMMDD = ('0' + (threeDaysLater.getMonth() + 1)).slice(-2) + '-' + ('0' + threeDaysLater.getDate()).slice(-2);
+
+            var reminders = hrEmployees.filter(function(emp) {
+                return emp.birthday >= todayMMDD && emp.birthday <= limitMMDD;
+            });
+
+            reminders.sort(function(a, b) {
+                var dateCompare = a.birthday.localeCompare(b.birthday);
+                if (dateCompare !== 0) return dateCompare;
+                return a.name.localeCompare(b.name, 'zh-CN');
+            });
+
+            return reminders;
+        }
+
+        function getAnniversaryReminders() {
+            var today = new Date();
+            var thisYear = today.getFullYear();
+            var todayMMDD = ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+            var threeDaysLater = new Date(today);
+            threeDaysLater.setDate(today.getDate() + 2);
+            var limitMMDD = ('0' + (threeDaysLater.getMonth() + 1)).slice(-2) + '-' + ('0' + threeDaysLater.getDate()).slice(-2);
+
+            var reminders = hrEmployees.filter(function(emp) {
+                var hireMMDD = emp.hireDate.slice(5);
+                return hireMMDD >= todayMMDD && hireMMDD <= limitMMDD;
+            });
+
+            reminders.sort(function(a, b) {
+                var yearsA = thisYear - parseInt(a.hireDate.slice(0, 4), 10);
+                var yearsB = thisYear - parseInt(b.hireDate.slice(0, 4), 10);
+                if (yearsA !== yearsB) return yearsB - yearsA;
+                return a.name.localeCompare(b.name, 'zh-CN');
+            });
+
+            return reminders;
+        }
+
+        function generateBirthdayCard() {
+            var reminders = getBirthdayReminders();
+            if (reminders.length === 0) return '';
+
+            var itemsHtml = '';
+            reminders.forEach(function(emp) {
+                var monthDay = emp.birthday;
+                var weekDay = new Date(new Date().getFullYear(), parseInt(monthDay.slice(0,2),10)-1, parseInt(monthDay.slice(3),10)).toLocaleDateString('zh-CN', {weekday:'short'});
+                itemsHtml += '<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:#FFF0F0;border-radius:6px;">' +
+                    '<div style="display:flex;align-items:center;gap:6px;">' +
+                        '<span style="font-size:13px;font-weight:600;color:#D4380D;">' + emp.name + '</span>' +
+                        '<span style="font-size:10px;color:#999;">' + emp.store + ' · ' + emp.position + '</span>' +
+                    '</div>' +
+                    '<span style="font-size:10px;color:#D4380D;font-weight:500;">' + monthDay + ' ' + weekDay + '</span>' +
+                '</div>';
+            });
+
+            return '<div style="padding:8px 10px;background:#FFEBEE;border-radius:6px;border-left:3px solid #D4380D;">' +
+                '<div style="font-size:12px;font-weight:600;color:#D4380D;margin-bottom:6px;">🎂 生日提醒（近3天' + reminders.length + '人）</div>' +
+                '<div style="display:flex;flex-direction:column;gap:4px;">' + itemsHtml + '</div>' +
+            '</div>';
+        }
+
+        function generateAnniversaryCard() {
+            var reminders = getAnniversaryReminders();
+            if (reminders.length === 0) return '';
+
+            var thisYear = new Date().getFullYear();
+            var itemsHtml = '';
+            reminders.forEach(function(emp) {
+                var years = thisYear - parseInt(emp.hireDate.slice(0, 4), 10);
+                var hireMMDD = emp.hireDate.slice(5);
+                var weekDay = new Date(new Date().getFullYear(), parseInt(hireMMDD.slice(0,2),10)-1, parseInt(hireMMDD.slice(3),10)).toLocaleDateString('zh-CN', {weekday:'short'});
+                var yearsLabel = years + '周年';
+                itemsHtml += '<div style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:#FFF8E1;border-radius:6px;">' +
+                    '<div style="display:flex;align-items:center;gap:6px;">' +
+                        '<span style="font-size:13px;font-weight:600;color:#E65100;">' + emp.name + '</span>' +
+                        '<span style="font-size:10px;color:#999;">' + emp.store + ' · ' + emp.position + '</span>' +
+                    '</div>' +
+                    '<span style="font-size:10px;color:#E65100;font-weight:500;">' + yearsLabel + ' 🎉' + '</span>' +
+                '</div>';
+            });
+
+            return '<div style="padding:8px 10px;background:#FFF3E0;border-radius:6px;border-left:3px solid #E65100;">' +
+                '<div style="font-size:12px;font-weight:600;color:#E65100;margin-bottom:6px;">📅 入职周年提醒（近3天' + reminders.length + '人）</div>' +
+                '<div style="display:flex;flex-direction:column;gap:4px;">' + itemsHtml + '</div>' +
+            '</div>';
+        }
+
         function generateReportResult() {
             const timeLabel = getTimeLabel();
+            var birthdayCard = generateBirthdayCard();
+            var anniversaryCard = generateAnniversaryCard();
             return `
                 <div class="result-card">
                     <div class="card-header">
@@ -5117,19 +5494,22 @@
                         <div class="card-icon">📋</div>
                     </div>
                     <div class="card-body">
-                        <div class="card-summary">今日人事工作概况如下：</div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <div style="padding: 8px 10px; background: #F0F7FF; border-radius: 6px;">
-                                <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">📈 考勤情况</div>
-                                <div style="font-size: 11px; color: #666;">今日到岗率 92%，较昨日提升 2%</div>
-                            </div>
-                            <div style="padding: 8px 10px; background: #FFF8E1; border-radius: 6px;">
-                                <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">📄 合同管理</div>
-                                <div style="font-size: 11px; color: #666;">本月到期合同 5 份，已续签 3 份</div>
-                            </div>
-                            <div style="padding: 8px 10px; background: #F6FFED; border-radius: 6px;">
-                                <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">👤 人员变动</div>
-                                <div style="font-size: 11px; color: #666;">本月入职 8 人，离职 3 人</div>
+                        <div class="card-summary" style="margin-bottom:6px;">今日人事工作概况如下：</div>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            ${[birthdayCard, anniversaryCard].filter(Boolean).length > 0 ? '<div style="display:flex;flex-direction:column;gap:6px;">' + [birthdayCard, anniversaryCard].filter(Boolean).join('') + '</div>' : ''}
+                            <div style="display: flex; flex-direction: column; gap: 6px;">
+                                <div style="padding: 8px 10px; background: #F0F7FF; border-radius: 6px;">
+                                    <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">📈 考勤情况</div>
+                                    <div style="font-size: 11px; color: #666;">今日到岗率 92%，较昨日提升 2%</div>
+                                </div>
+                                <div style="padding: 8px 10px; background: #FFF8E1; border-radius: 6px;">
+                                    <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">📄 合同管理</div>
+                                    <div style="font-size: 11px; color: #666;">本月到期合同 5 份，已续签 3 份</div>
+                                </div>
+                                <div style="padding: 8px 10px; background: #F6FFED; border-radius: 6px;">
+                                    <div style="font-size: 12px; font-weight: 600; color: #1A1A1A; margin-bottom: 2px;">👤 人员变动</div>
+                                    <div style="font-size: 11px; color: #666;">本月入职 8 人，离职 3 人</div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-followup">
@@ -5258,16 +5638,12 @@
                                 <div class="stat-value">5</div>
                                 <div class="stat-label">待审批</div>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-value">2</div>
-                                <div class="stat-label">紧急</div>
-                            </div>
                         </div>
                         <table class="card-table">
                             <tr><th>类型</th><th>申请人</th><th>门店</th><th>时间</th><th>状态</th></tr>
-                            <tr><td>离职申请</td><td>钱十一</td><td style="font-size:11px;color:#666;">总店</td><td>01-18</td><td><span class="badge badge-danger">紧急</span></td></tr>
+                            <tr><td>离职申请</td><td>钱十一</td><td style="font-size:11px;color:#666;">总店</td><td>01-18</td><td><span class="badge badge-warning">待审批</span></td></tr>
                             <tr><td>转正申请</td><td>张三</td><td style="font-size:11px;color:#666;">西单店</td><td>01-17</td><td><span class="badge badge-warning">待审批</span></td></tr>
-                            <tr><td>请假申请</td><td>李四</td><td style="font-size:11px;color:#666;">3店</td><td>01-17</td><td><span class="badge badge-info">待审批</span></td></tr>
+                            <tr><td>请假申请</td><td>李四</td><td style="font-size:11px;color:#666;">3店</td><td>01-17</td><td><span class="badge badge-warning">待审批</span></td></tr>
                         </table>
                         <div class="card-actions">
                             <button class="card-action-btn" onclick="showApprovalDetail()">批量处理</button>
@@ -5281,51 +5657,109 @@
 
         function generateEvaluationResult() {
             const timeLabel = getTimeLabel();
+            const top3 = `
+                <div class="ranking-item">
+                    <div class="ranking-badge gold">1</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">王五</div>
+                        <div class="ranking-department">收银 · 苏福记总店</div>
+                    </div>
+                    <div class="ranking-score">92分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge silver">2</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">赵六</div>
+                        <div class="ranking-department">领班 · 苏福记西单店</div>
+                    </div>
+                    <div class="ranking-score">90分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge bronze">3</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">李四</div>
+                        <div class="ranking-department">服务员 · 苏福记3店</div>
+                    </div>
+                    <div class="ranking-score">88分</div>
+                </div>
+            `;
+            const moreItems = `
+                <div class="ranking-item">
+                    <div class="ranking-badge">4</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">张三</div>
+                        <div class="ranking-department">帮厨 · 苏福记西单店</div>
+                    </div>
+                    <div class="ranking-score">85分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">5</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">钱十一</div>
+                        <div class="ranking-department">服务员 · 苏福记总店</div>
+                    </div>
+                    <div class="ranking-score">82分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">6</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">孙七</div>
+                        <div class="ranking-department">收银 · 苏福记3店</div>
+                    </div>
+                    <div class="ranking-score">78分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">7</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">周八</div>
+                        <div class="ranking-department">保洁 · 苏福记总店</div>
+                    </div>
+                    <div class="ranking-score">75分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">8</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">吴九</div>
+                        <div class="ranking-department">切配 · 苏福记西单店</div>
+                    </div>
+                    <div class="ranking-score">72分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">9</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">郑十</div>
+                        <div class="ranking-department">炒锅 · 苏福记3店</div>
+                    </div>
+                    <div class="ranking-score">70分</div>
+                </div>
+                <div class="ranking-item">
+                    <div class="ranking-badge">10</div>
+                    <div class="ranking-info">
+                        <div class="ranking-name">陈十三</div>
+                        <div class="ranking-department">保洁 · 苏福记西单店</div>
+                    </div>
+                    <div class="ranking-score">68分</div>
+                </div>
+            `;
             return `
                 <div class="result-card">
                     <div class="card-header">
                         <div>
-                            <div class="card-title">🏆 人事评价排行榜</div>
+                            <div class="card-title">🏆 人事综合评分排行榜</div>
                             <div class="card-subtitle">本月排名 · ${getMonthLabel()}</div>
                         </div>
                         <div class="card-icon">📊</div>
                     </div>
                     <div class="card-body">
                         <div class="ranking-list">
-                            <div class="ranking-item">
-                                <div class="ranking-badge gold">1</div>
-                                <div class="ranking-info">
-                                    <div class="ranking-name">王五</div>
-                                    <div class="ranking-department">收银 · 苏福记总店</div>
-                                </div>
-                                <div class="ranking-score">92分</div>
-                            </div>
-                            <div class="ranking-item">
-                                <div class="ranking-badge silver">2</div>
-                                <div class="ranking-info">
-                                    <div class="ranking-name">赵六</div>
-                                    <div class="ranking-department">领班 · 苏福记西单店</div>
-                                </div>
-                                <div class="ranking-score">90分</div>
-                            </div>
-                            <div class="ranking-item">
-                                <div class="ranking-badge bronze">3</div>
-                                <div class="ranking-info">
-                                    <div class="ranking-name">李四</div>
-                                    <div class="ranking-department">服务员 · 苏福记3店</div>
-                                </div>
-                                <div class="ranking-score">88分</div>
-                            </div>
-                            <div class="ranking-item">
-                                <div class="ranking-badge">4</div>
-                                <div class="ranking-info">
-                                    <div class="ranking-name">张三</div>
-                                    <div class="ranking-department">帮厨 · 苏福记西单店</div>
-                                </div>
-                                <div class="ranking-score">85分</div>
-                            </div>
+                            ${top3}
                         </div>
-                        <div class="view-more" onclick="showFullRanking()">查看完整排行榜 <span class="arrow">›</span></div>
+                        <div id="ranking-full" style="display:none;margin-top:8px;">
+                            ${moreItems}
+                        </div>
+                        <div class="view-more" id="ranking-toggle" onclick="toggleFullRanking(this)" style="cursor:pointer;">
+                            查看完整排行榜 <span class="arrow">›</span>
+                        </div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
                     </div>
                 </div>
@@ -5473,11 +5907,23 @@
                     <div class="card-header">
                         <div>
                             <div class="card-title">🎯 新店人才推荐</div>
-                            <div class="card-subtitle">苏福记大兴店 · 需求：店长1人 + 主管2人</div>
+                            <div class="card-subtitle">苏福记大兴店 · 需求：店长1人 + 主管2人 · 六大维度体系 V3.0</div>
                         </div>
                         <div class="card-icon">⭐</div>
                     </div>
                     <div class="card-body">
+                        <div class="card-summary" style="background:#F0F7FF;padding:10px 12px;border-radius:8px;margin-bottom:12px;border-left:3px solid #4A90E2;">
+                            <div style="font-size:12px;font-weight:600;color:#4A90E2;margin-bottom:4px;">六大维度·决策逻辑链</div>
+                            <div style="font-size:11px;color:#555;line-height:1.6;">
+                                <span style="display:inline-block;padding:1px 6px;border-radius:3px;background:#FFEBEE;color:#C62828;font-size:10px;margin-right:2px;">准入判断</span> 维度①个人胜任力 + 维度②门店经营实绩 → 任一不达标则排除
+                            </div>
+                            <div style="font-size:11px;color:#555;line-height:1.6;">
+                                <span style="display:inline-block;padding:1px 6px;border-radius:3px;background:#FFF8E1;color:#F57F17;font-size:10px;margin-right:2px;">分层推荐</span> 维度③团队管理力 + 维度④调店适应力 + 维度⑤成长发展力 → 拉开差距
+                            </div>
+                            <div style="font-size:11px;color:#555;line-height:1.6;">
+                                <span style="display:inline-block;padding:1px 6px;border-radius:3px;background:#E8F5E9;color:#2E7D32;font-size:10px;margin-right:2px;">时机判断</span> 维度⑥调动可行性 → 决定是否现在调动
+                            </div>
+                        </div>
                         <div class="talent-section-title">━━━━ 店长推荐（1人）━━━━</div>
                         <div class="recommend-card star">
                             <div class="recommend-header">
@@ -5485,22 +5931,30 @@
                                 <span class="recommend-badge tag">西单店·副店长·P3</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag promotion">📈晋升</span></span>
-                                <span class="dimension-desc">已达店长职级，2次晋升记录，入职1.5年首次晋升</span>
+                                <span class="dimension-label"><span class="dimension-tag competence">👤胜任力</span></span>
+                                <span class="dimension-desc">职级已达店长标准，92分（门店第1），近6月↑连续上升，奖惩比2:1，无技能短板</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag transfer">🔄调店</span></span>
-                                <span class="dimension-desc">2次跨店经历，1次借调，调动后首月评价高于门店均值</span>
+                                <span class="dimension-label"><span class="dimension-tag performance">🏪经营实绩</span></span>
+                                <span class="dimension-desc">利润完成率105%（优），中差评月均≤2条↓下降，巡店评分92，整改完成率100%</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag salary">💰涨薪</span></span>
-                                <span class="dimension-desc">年均调薪2次，当前薪资低于岗位标准上限，有上调空间</span>
+                                <span class="dimension-label"><span class="dimension-tag team">👥团队管理</span></span>
+                                <span class="dimension-desc">离职率6%（优），编制达成率98%，员工评价均分高于公司均值，带教3人已出师</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag eval">⭐评价</span></span>
-                                <span class="dimension-desc">92分（门店第1），近6月连续上升，各项均衡无短板</span>
+                                <span class="dimension-label"><span class="dimension-tag adaptability">🔄调店适应</span></span>
+                                <span class="dimension-desc">2次跨店经历含1次平调，调动后首月评价高于前店，有跨商圈经历（商圈→社区）</span>
                             </div>
-                            <div class="recommend-reason">💡 推荐理由：职级已达标，评价连续上升且排名靠前，有跨店经验适应力强，薪资有上调空间可作入职激励</div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag growth">📚成长发展</span></span>
+                                <span class="dimension-desc">评价连续6月↑上升，入职1.5年首次晋升（快于平均），培训完成率120%，获2张证书</span>
+                            </div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag feasibility">✅调动可行</span></span>
+                                <span class="dimension-desc">薪资低于上限有上调空间，原门店满编有继任者，非刚签署合同，距新店8km</span>
+                            </div>
+                            <div class="recommend-reason">💡 推荐理由：六大维度表现全面，个人胜任力和门店经营实绩尤为突出。团队管理力强（离职率仅6%、带教3人已出师），调店适应力经2次跨店验证，成长力持续上升，调动可行性高——适合立即调往新店担任店长</div>
                             <div class="card-actions" style="margin-top:6px;">
                                 <button class="card-action-btn">查看画像</button>
                                 <button class="card-action-btn">联系本人</button>
@@ -5514,22 +5968,30 @@
                                 <span class="recommend-badge tag">西单店·领班·P2</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag promotion">📈晋升</span></span>
-                                <span class="dimension-desc">差1级，1次晋升记录</span>
+                                <span class="dimension-label"><span class="dimension-tag competence">👤胜任力</span></span>
+                                <span class="dimension-desc">职级差1级（副店长→店长），88分（前20%），趋势→持平，奖惩比1.5:1</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag transfer">🔄调店</span></span>
-                                <span class="dimension-desc">1次跨店经历，适应良好</span>
+                                <span class="dimension-label"><span class="dimension-tag performance">🏪经营实绩</span></span>
+                                <span class="dimension-desc">利润完成率92%（良），中差评月均3条→稳定，巡店评分85，整改按时完成</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag salary">💰涨薪</span></span>
-                                <span class="dimension-desc">年均调薪1次，薪资在中位</span>
+                                <span class="dimension-label"><span class="dimension-tag team">👥团队管理</span></span>
+                                <span class="dimension-desc">离职率12%（良），编制达成率85%，员工评价均分接近公司均值</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag eval">⭐评价</span></span>
-                                <span class="dimension-desc">88分（门店前20%），趋势持平</span>
+                                <span class="dimension-label"><span class="dimension-tag adaptability">🔄调店适应</span></span>
+                                <span class="dimension-desc">1次跨店经历，调动后评价持平，适应良好</span>
                             </div>
-                            <div class="recommend-reason">💡 推荐理由：职级差1级但晋升轨迹清晰，评价稳定，需关注技能项提升</div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag growth">📚成长发展</span></span>
+                                <span class="dimension-desc">评价持平无下降，晋升速度中等，培训完成率100%，需关注技能项提升</span>
+                            </div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag feasibility">✅调动可行</span></span>
+                                <span class="dimension-desc">薪资在中位有上调空间，原门店有备选领班，合同正常状态</span>
+                            </div>
+                            <div class="recommend-reason">💡 推荐理由：个人胜任力和门店经营实绩均达标，团队管理良好，有跨店经历适应力已验证。主要短板是职级差1级且评价趋势持平、技能项有提升空间，建议安排技能培训后到岗</div>
                         </div>
                         <div class="recommend-card">
                             <div class="recommend-header">
@@ -5537,22 +5999,30 @@
                                 <span class="recommend-badge tag">国贸店·领班·P2</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag promotion">📈晋升</span></span>
-                                <span class="dimension-desc">差1级，1次晋升记录</span>
+                                <span class="dimension-label"><span class="dimension-tag competence">👤胜任力</span></span>
+                                <span class="dimension-desc">职级差1级，85分（前25%），趋势↑上升，无奖惩问题</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag transfer">🔄调店</span></span>
-                                <span class="dimension-desc">无跨店经历</span>
+                                <span class="dimension-label"><span class="dimension-tag performance">🏪经营实绩</span></span>
+                                <span class="dimension-desc">利润完成率88%（良），中差评月均4条，巡店评分82</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag salary">💰涨薪</span></span>
-                                <span class="dimension-desc">年均调薪1次，薪资在中位</span>
+                                <span class="dimension-label"><span class="dimension-tag team">👥团队管理</span></span>
+                                <span class="dimension-desc">离职率15%（临界），编制达成率82%，员工评价均分略低于公司均值</span>
                             </div>
                             <div class="dimension-row">
-                                <span class="dimension-label"><span class="dimension-tag eval">⭐评价</span></span>
-                                <span class="dimension-desc">85分（门店前25%），趋势上升</span>
+                                <span class="dimension-label"><span class="dimension-tag adaptability">🔄调店适应</span></span>
+                                <span class="dimension-desc">无跨店经历 ⚠️调店适应力需评估</span>
                             </div>
-                            <div class="recommend-reason">💡 推荐理由：评价趋势上升但无跨店经历，调店适应力需评估</div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag growth">📚成长发展</span></span>
+                                <span class="dimension-desc">评价趋势↑上升，晋升速度中等，培训完成率105%（超额完成）</span>
+                            </div>
+                            <div class="dimension-row">
+                                <span class="dimension-label"><span class="dimension-tag feasibility">✅调动可行</span></span>
+                                <span class="dimension-desc">薪资在中位有上调空间，原门店缺编 ⚠️需先补充继任者</span>
+                            </div>
+                            <div class="recommend-reason">💡 推荐理由：胜任力和经营实绩达标，评价趋势上升说明有成长潜力。主要风险：①无跨店经历，调店适应力未知；②原门店缺编，调走需先安排继任。建议纳入储备但暂缓调动，待原门店补编后再评估</div>
                             <div class="view-more" onclick="showCandidateDetail('主管')"><span class="view-more-count">+3人</span> 查看候补 <span class="arrow">›</span></div>
                         </div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
@@ -5568,49 +6038,51 @@
                     <div class="card-header">
                         <div>
                             <div class="card-title">🌟 后备人才库</div>
-                            <div class="card-subtitle">苏福记 · 核心储备3人 / 重点培养5人 / 潜力观察4人</div>
+                            <div class="card-subtitle">苏福记 · 核心储备3人 / 重点培养5人 / 潜力观察4人 · 六大维度评估</div>
                         </div>
                         <div class="card-icon">🏆</div>
                     </div>
                     <div class="card-body">
                         <div class="tier-header core">
                             <span class="tier-title core">🔥 核心储备（3人）</span>
-                            <span class="tier-count">四维度均优，可随时晋升</span>
+                            <span class="tier-count">六大维度均优，可随时晋升</span>
                         </div>
-                        <div class="tier-desc">四维度均优，可随时晋升</div>
+                        <div class="tier-desc">六大维度均优，可随时晋升</div>
                         <div class="pool-card">
                             <div class="pool-card-header">
                                 <span class="pool-name">张三</span>
                                 <span class="recommend-badge tag" style="font-size:10px;padding:1px 6px;margin-left:4px;">西单店</span>
-                                <span class="pool-stage">导师带教中</span>
                             </div>
                             <div class="pool-dims">
-                                <span class="pool-dim"><strong>📈晋升</strong> 2次晋升，已达主管职级</span>
-                                <span class="pool-dim"><strong>🔄调店</strong> 2次跨店+1次借调，适应力强</span>
-                                <span class="pool-dim"><strong>💰涨薪</strong> 年均调薪2次，增速18%</span>
-                                <span class="pool-dim"><strong>⭐评价</strong> 92分（第1），连续上升，无短板</span>
+                                <span class="pool-dim"><strong>👤胜任力</strong> P3已达，92分（第1），↑连续上升</span>
+                                <span class="pool-dim"><strong>🏪经营实绩</strong> 利润完成率105%，巡店92分</span>
+                                <span class="pool-dim"><strong>👥团队管理</strong> 离职率6%，编制98%，带教3人出师</span>
+                                <span class="pool-dim"><strong>🔄调店适应</strong> 2次跨店，适应力强</span>
+                                <span class="pool-dim"><strong>📚成长发展</strong> 评价↑6月，培训120%，获2证</span>
+                                <span class="pool-dim"><strong>✅调动可行</strong> 薪资有上调空间，原店有继任</span>
                             </div>
-                            <div class="pool-reason">推荐理由：四维度均优，可晋升副店长</div>
+                            <div class="pool-reason">💡 推荐理由：六大维度全面领先，可晋升店长</div>
                             <div class="view-more" onclick="showCandidateDetail('核心储备')"><span class="view-more-count">+2人</span> 查看候补 <span class="arrow">›</span></div>
                         </div>
                         <div class="tier-header growth">
                             <span class="tier-title growth">📈 重点培养（5人）</span>
-                            <span class="tier-count">有1-2个维度突出，需补短板</span>
+                            <span class="tier-count">有2-3个维度突出，需补短板</span>
                         </div>
-                        <div class="tier-desc">有1-2个维度突出，需补短板</div>
+                        <div class="tier-desc">有2-3个维度突出，需补短板</div>
                         <div class="pool-card">
                             <div class="pool-card-header">
                                 <span class="pool-name">王五</span>
                                 <span class="recommend-badge tag" style="font-size:10px;padding:1px 6px;margin-left:4px;">总店</span>
-                                <span class="pool-stage">岗位学习中</span>
                             </div>
                             <div class="pool-dims">
-                                <span class="pool-dim"><strong>📈晋升</strong> 1次晋升，差1级</span>
-                                <span class="pool-dim"><strong>🔄调店</strong> 1次跨店经历</span>
-                                <span class="pool-dim"><strong>💰涨薪</strong> 年均调薪1次，增速12%</span>
-                                <span class="pool-dim"><strong>⭐评价</strong> 85分（前25%），趋势上升，技能项偏低</span>
+                                <span class="pool-dim"><strong>👤胜任力</strong> P2差1级，85分（前25%），↑上升</span>
+                                <span class="pool-dim"><strong>🏪经营实绩</strong> 利润完成率88%（良），巡店82分</span>
+                                <span class="pool-dim"><strong>👥团队管理</strong> 离职率15%（临界），编制82%</span>
+                                <span class="pool-dim"><strong>🔄调店适应</strong> 1次跨店经历</span>
+                                <span class="pool-dim"><strong>📚成长发展</strong> 趋势↑上升，培训完成率105%</span>
+                                <span class="pool-dim"><strong>✅调动可行</strong> 薪资有空间，原店缺编⚠️</span>
                             </div>
-                            <div class="pool-reason">短板：技能评分低于均值，建议安排技能培训后评估</div>
+                            <div class="pool-reason">短板：团队管理力偏低（离职率15%，编制82%），建议降低离职率后评估</div>
                             <div class="view-more" onclick="showCandidateDetail('重点培养')"><span class="view-more-count">+4人</span> 查看候补 <span class="arrow">›</span></div>
                         </div>
                         <div class="tier-header potential">
@@ -5619,7 +6091,7 @@
                         </div>
                         <div class="tier-desc">评价达标但其他维度数据不足，1-2年观察期</div>
                         <div class="view-more" onclick="showCandidateDetail('潜力观察')"><span class="view-more-count">+4人</span> 查看候补 <span class="arrow">›</span></div>
-                        <div class="ai-analysis">💡 AI分析：本月新入库2人，1人四维度均优待安排晋升</div>
+                        <div class="ai-analysis">💡 AI分析：本月新入库2人，1人六大维度均优待安排晋升</div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
                     </div>
                 </div>
@@ -5824,6 +6296,139 @@
                             </ul>
                         </div>
                         <div class="card-source">📅 数据时间：${timeLabel}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateProductOverviewResult() {
+            const timeLabel = getTimeLabel();
+            return `
+                <div class="result-card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">📖 产品概述</div>
+                            <div class="card-subtitle">AI员工关系助手 V3.0 · 2026-05-24</div>
+                        </div>
+                        <div class="card-icon">🚀</div>
+                    </div>
+                    <div class="card-body">
+                        <div style="padding:12px 14px;background:linear-gradient(135deg,#7C3AED 0%,#4F46E5 100%);border-radius:10px;margin-bottom:12px;">
+                            <div style="font-size:11px;color:#C4B5FD;margin-bottom:4px;font-weight:500;">🎯 产品定位</div>
+                            <div style="font-size:14px;color:#FFFFFF;font-weight:600;line-height:1.5;">HR的AI员工关系助手，通过自然语言交互提供员工关系管理的查询、预警、画像、推荐、报告能力</div>
+                        </div>
+
+                        <div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px;">🛑 解决的核心问题</div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px;">
+                            <div style="padding:8px 10px;background:#FFF0F0;border-radius:8px;border-left:3px solid #E53E3E;">
+                                <div style="font-size:11px;font-weight:600;color:#C53030;margin-bottom:2px;">效率低</div>
+                                <div style="font-size:10px;color:#742A2A;line-height:1.4;">需登录后台、记忆菜单路径、手动筛选数据</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#FFF8E1;border-radius:8px;border-left:3px solid #DD6B20;">
+                                <div style="font-size:11px;font-weight:600;color:#C05621;margin-bottom:2px;">发现滞后</div>
+                                <div style="font-size:10px;color:#7B341E;line-height:1.4;">合同到期、试用期到期、考勤异常等依赖人工排查</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#E8F5E9;border-radius:8px;border-left:3px solid #38A169;">
+                                <div style="font-size:11px;font-weight:600;color:#276749;margin-bottom:2px;">信息孤岛</div>
+                                <div style="font-size:10px;color:#22543D;line-height:1.4;">评价、考勤、薪酬、培训数据分布在不同后台模块</div>
+                            </div>
+                        </div>
+
+                        <div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px;">💎 核心价值</div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:14px;">
+                            <div style="padding:8px 10px;background:#F0F7FF;border-radius:8px;text-align:center;">
+                                <div style="font-size:20px;margin-bottom:2px;">🗣️</div>
+                                <div style="font-size:11px;font-weight:600;color:#2B6CB0;margin-bottom:2px;">一句话查询</div>
+                                <div style="font-size:10px;color:#555;">无需记忆菜单路径</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#F0F7FF;border-radius:8px;text-align:center;">
+                                <div style="font-size:20px;margin-bottom:2px;">🔔</div>
+                                <div style="font-size:11px;font-weight:600;color:#2B6CB0;margin-bottom:2px;">主动预警</div>
+                                <div style="font-size:10px;color:#555;">变被动响应为主动预防</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#F0F7FF;border-radius:8px;text-align:center;">
+                                <div style="font-size:20px;margin-bottom:2px;">🔄</div>
+                                <div style="font-size:11px;font-weight:600;color:#2B6CB0;margin-bottom:2px;">数据打通</div>
+                                <div style="font-size:10px;color:#555;">360°画像打通数据孤岛</div>
+                            </div>
+                        </div>
+
+                        <div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px;">🧩 核心功能模块（6大模块 · 34项功能）</div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;">
+                            <div style="padding:8px 10px;background:#EBF8FF;border-radius:8px;border-left:3px solid #3182CE;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">🔍</span>
+                                    <span style="font-size:12px;font-weight:600;color:#2B6CB0;">Q查询</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">11项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">花名册、人事评价、员工画像、缺编、离职、人力成本、考勤异常、合同到期、OA审批、人事规则、岗位说明书</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#FFF5F5;border-radius:8px;border-left:3px solid #E53E3E;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">⚠️</span>
+                                    <span style="font-size:12px;font-weight:600;color:#C53030;">W预警提醒</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">8项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">试用期到期、合同到期、考勤异常、人力成本、编制偏离、离职风险、生日提醒、入职周年</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#FAF5FF;border-radius:8px;border-left:3px solid #805AD5;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">👤</span>
+                                    <span style="font-size:12px;font-weight:600;color:#6B46C1;">P画像</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">9项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">基础信息、评价、晋升路径、调薪、绩效、奖惩、考勤、培训、AI综合</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#F0FFF4;border-radius:8px;border-left:3px solid #38A169;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">⭐</span>
+                                    <span style="font-size:12px;font-weight:600;color:#276749;">T人才</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">3项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">新店人才推荐（六大维度）、后备人才库、人才对比</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#FFF8F0;border-radius:8px;border-left:3px solid #DD6B20;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">📊</span>
+                                    <span style="font-size:12px;font-weight:600;color:#C05621;">R报告</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">1项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">人力运营日报/周报（含生日/入职周年提醒）</div>
+                            </div>
+                            <div style="padding:8px 10px;background:#FFF5FF;border-radius:8px;border-left:3px solid #D53F8C;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <span style="font-size:14px;">💬</span>
+                                    <span style="font-size:12px;font-weight:600;color:#B83280;">I交互</span>
+                                    <span style="font-size:10px;color:#4A5568;font-weight:400;">4项</span>
+                                </div>
+                                <div style="font-size:10px;color:#555;line-height:1.4;">意图切换、快速指令、多轮对话、推送设置</div>
+                            </div>
+                        </div>
+
+                        <div style="padding:10px 12px;background:#F8FAFC;border-radius:8px;margin-bottom:12px;border:1px solid #E2E8F0;">
+                            <div style="font-size:12px;font-weight:600;color:#333;margin-bottom:6px;">👥 用户角色与权限</div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+                                <!--div style="padding:6px 8px;background:#fff;border-radius:6px;border-left:3px solid #3182CE;">
+                                    <div style="font-size:11px;font-weight:600;color:#2B6CB0;">店长</div>
+                                    <div style="font-size:10px;color:#555;">Q+W+P+I · 本门店数据</div>-->
+                                </div>
+                               <!--<div style="padding:6px 8px;background:#fff;border-radius:6px;border-left:3px solid #38A169;">
+                                    <div style="font-size:11px;font-weight:600;color:#276749;">督导</div>
+                                    <div style="font-size:10px;color:#555;">Q+W+P+R · 管辖门店</div>-->
+                                </div>
+                                <div style="padding:6px 8px;background:#fff;border-radius:6px;border-left:3px solid #7C3AED;">
+                                    <div style="font-size:11px;font-weight:600;color:#5B21B6;">HR/总部</div>
+                                    <div style="font-size:10px;color:#555;">全功能 Q/W/P/T/R+I · 全部数据</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding:8px 10px;background:#FFF8E1;border-radius:6px;display:flex;align-items:center;gap:6px;">
+                            <span style="font-size:13px;">🔗</span>
+                            <span style="font-size:10px;color:#92400E;">入口方式：在AI助手对话流中通过语义理解自动切换身份，无需独立入口</span>
+                        </div>
+
+                        <div class="card-source">📋 来源：PRD-AI员工关系助手.md V3.0 · ${timeLabel}</div>
                     </div>
                 </div>
             `;
@@ -6559,7 +7164,7 @@
                             <span class="pagination-info">共 ${filtered.length} 人 · 第1/1页</span>
                         </div>
                         <div class="card-followup">
-                            <div class="followup-label">快捷操作</div>
+                            <div class="followup-label">猜你想问</div>
                             <div class="followup-tags">
                                 <span class="followup-tag">导出表格</span>
                                 <span class="followup-tag">筛选查询</span>
@@ -6583,6 +7188,728 @@
                 }, 100);
             }
         })();
+
+        /* ================================================================
+           新店人才推荐模块 - 鼎味轩测试数据集 + 5轮对话引擎
+           ================================================================ */
+
+        /* ---------- 1. 鼎味轩测试数据集 ---------- */
+        const DWX = {
+            stores: [
+                { id:'DWX-SH-001', name:'浦东旗舰店', city:'上海', district:'浦东新区', format:'火锅', tables:28, quota:35, headcount:32, rate:'91.4%' },
+                { id:'DWX-SH-002', name:'静安寺店', city:'上海', district:'静安区', format:'中餐', tables:16, quota:22, headcount:21, rate:'95.5%' },
+                { id:'DWX-SH-003', name:'徐汇日月光店', city:'上海', district:'徐汇区', format:'快餐', tables:8, quota:12, headcount:11, rate:'91.7%' },
+                { id:'DWX-SZ-001', name:'深圳南山店', city:'深圳', district:'南山区', format:'火锅', tables:25, quota:32, headcount:30, rate:'93.8%' },
+                { id:'DWX-SZ-002', name:'深圳福田店', city:'深圳', district:'福田区', format:'中餐', tables:15, quota:20, headcount:18, rate:'90.0%' },
+                { id:'DWX-GZ-001', name:'广州天河城店', city:'广州', district:'天河区', format:'火锅', tables:24, quota:30, headcount:28, rate:'93.3%' },
+                { id:'DWX-GZ-002', name:'广州珠江新城店', city:'广州', district:'天河区', format:'中餐', tables:14, quota:18, headcount:17, rate:'94.4%' },
+                { id:'DWX-BJ-001', name:'北京朝阳大悦城店', city:'北京', district:'朝阳区', format:'火锅', tables:26, quota:33, headcount:30, rate:'90.9%' },
+                { id:'DWX-BJ-002', name:'北京西单店', city:'北京', district:'西城区', format:'快餐', tables:12, quota:16, headcount:15, rate:'93.8%' },
+                { id:'DWX-HZ-001', name:'杭州西湖店', city:'杭州', district:'西湖区', format:'中餐', tables:22, quota:28, headcount:26, rate:'92.9%' }
+            ],
+            storeMap: {},
+
+            storeRevenue: {
+                '浦东旗舰店': { profitRate: 98, patrolScore: 92, negativeReviews: 2 },
+                '静安寺店': { profitRate: 95, patrolScore: 88, negativeReviews: 3 },
+                '徐汇日月光店': { profitRate: 87, patrolScore: 78, negativeReviews: 1 },
+                '深圳南山店': { profitRate: 102, patrolScore: 95, negativeReviews: 1 },
+                '深圳福田店': { profitRate: 90, patrolScore: 82, negativeReviews: 4 },
+                '广州天河城店': { profitRate: 96, patrolScore: 90, negativeReviews: 2 },
+                '广州珠江新城店': { profitRate: 85, patrolScore: 80, negativeReviews: 2 },
+                '北京朝阳大悦城店': { profitRate: 93, patrolScore: 85, negativeReviews: 3 },
+                '北京西单店': { profitRate: 82, patrolScore: 75, negativeReviews: 5 },
+                '杭州西湖店': { profitRate: 91, patrolScore: 86, negativeReviews: 3 }
+            },
+            storeTurnover: {
+                '浦东旗舰店': { turnoverRate: 8, quotaRate: 91.4 },
+                '静安寺店': { turnoverRate: 10, quotaRate: 95.5 },
+                '徐汇日月光店': { turnoverRate: 14, quotaRate: 91.7 },
+                '深圳南山店': { turnoverRate: 6, quotaRate: 93.8 },
+                '深圳福田店': { turnoverRate: 12, quotaRate: 90.0 },
+                '广州天河城店': { turnoverRate: 9, quotaRate: 93.3 },
+                '广州珠江新城店': { turnoverRate: 11, quotaRate: 94.4 },
+                '北京朝阳大悦城店': { turnoverRate: 13, quotaRate: 90.9 },
+                '北京西单店': { turnoverRate: 16, quotaRate: 93.8 },
+                '杭州西湖店': { turnoverRate: 10, quotaRate: 92.9 }
+            },
+
+            employees: {
+                storeManager: [
+                    { id:'DWX-ST-001', name:'王建国', gender:'男', age:41, store:'浦东旗舰店', position:'店长', level:'店长', status:'正式', joinDate:'2019-05-10', edu:'本科', tenure:7, rewards:1, penalties:0, blacklisted:false, transfers:0, promotionCount:1, trainingRate:100, certificates:2, checkinDays:200, salaryRank:'中位' },
+                    { id:'DWX-ST-002', name:'李秀英', gender:'女', age:44, store:'静安寺店', position:'店长', level:'店长', status:'正式', joinDate:'2018-03-15', edu:'大专', tenure:8, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:1, trainingRate:100, certificates:1, checkinDays:150, salaryRank:'中位' },
+                    { id:'DWX-ST-003', name:'张海涛', gender:'男', age:38, store:'徐汇日月光店', position:'店长', level:'副店长', status:'正式', joinDate:'2020-06-01', edu:'本科', tenure:6, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:0, trainingRate:95, certificates:1, checkinDays:120, salaryRank:'低位' },
+                    { id:'DWX-ST-004', name:'陈丽华', gender:'女', age:43, store:'深圳南山店', position:'店长', level:'店长', status:'正式', joinDate:'2017-09-20', edu:'大专', tenure:9, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:2, trainingRate:100, certificates:2, checkinDays:180, salaryRank:'中位' },
+                    { id:'DWX-ST-005', name:'刘德明', gender:'男', age:40, store:'深圳福田店', position:'店长', level:'店长', status:'正式', joinDate:'2019-08-01', edu:'本科', tenure:7, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:1, trainingRate:100, certificates:1, checkinDays:160, salaryRank:'中位' },
+                    { id:'DWX-ST-006', name:'周玉芬', gender:'女', age:42, store:'广州天河城店', position:'店长', level:'店长', status:'正式', joinDate:'2018-11-05', edu:'大专', tenure:8, rewards:1, penalties:0, blacklisted:false, transfers:0, promotionCount:1, trainingRate:100, certificates:2, checkinDays:190, salaryRank:'中位' },
+                    { id:'DWX-ST-007', name:'吴志强', gender:'男', age:39, store:'广州珠江新城店', position:'店长', level:'副店长', status:'正式', joinDate:'2021-03-15', edu:'本科', tenure:5, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:0, trainingRate:90, certificates:0, checkinDays:100, salaryRank:'低位' },
+                    { id:'DWX-ST-008', name:'郑伟东', gender:'男', age:45, store:'北京朝阳大悦城店', position:'店长', level:'店长', status:'正式', joinDate:'2017-01-10', edu:'本科', tenure:9, rewards:1, penalties:0, blacklisted:false, transfers:0, promotionCount:2, trainingRate:100, certificates:2, checkinDays:220, salaryRank:'高位' },
+                    { id:'DWX-ST-009', name:'孙丽娜', gender:'女', age:37, store:'北京西单店', position:'店长', level:'副店长', status:'正式', joinDate:'2021-07-20', edu:'大专', tenure:5, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:0, trainingRate:85, certificates:0, checkinDays:80, salaryRank:'低位' },
+                    { id:'DWX-ST-010', name:'马建新', gender:'男', age:43, store:'杭州西湖店', position:'店长', level:'店长', status:'正式', joinDate:'2018-06-15', edu:'本科', tenure:8, rewards:0, penalties:0, blacklisted:false, transfers:0, promotionCount:1, trainingRate:100, certificates:1, checkinDays:170, salaryRank:'中位' }
+                ],
+                headChef: [
+                    { id:'DWX-CH-001', name:'赵志刚', store:'浦东旗舰店', level:'厨师长', edu:'中专', rewards:1, penalties:0 },
+                    { id:'DWX-CH-002', name:'李玉兰', store:'静安寺店', level:'厨师长', edu:'中专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-003', name:'王大伟', store:'徐汇日月光店', level:'副厨师长', edu:'大专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-004', name:'张小燕', store:'深圳南山店', level:'厨师长', edu:'中专', rewards:1, penalties:0 },
+                    { id:'DWX-CH-005', name:'陈国强', store:'深圳福田店', level:'厨师长', edu:'中专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-006', name:'林美玲', store:'广州天河城店', level:'厨师长', edu:'中专', rewards:0, penalties:1 },
+                    { id:'DWX-CH-007', name:'何建华', store:'广州珠江新城店', level:'副厨师长', edu:'大专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-008', name:'许秀珍', store:'北京朝阳大悦城店', level:'厨师长', edu:'中专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-009', name:'冯德胜', store:'北京西单店', level:'厨师长', edu:'中专', rewards:0, penalties:0 },
+                    { id:'DWX-CH-010', name:'杨文军', store:'杭州西湖店', level:'厨师长', edu:'中专', rewards:1, penalties:0 }
+                ],
+                frontSupervisor: [
+                    { id:'DWX-QG-001', name:'黄晓明', store:'浦东旗舰店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-002', name:'吴小梅', store:'浦东旗舰店', level:'主管', edu:'高中' },
+                    { id:'DWX-QG-003', name:'赵丽娟', store:'静安寺店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-004', name:'李小龙', store:'深圳南山店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-005', name:'王美红', store:'深圳南山店', level:'主管', edu:'高中' },
+                    { id:'DWX-QG-006', name:'陈伟民', store:'深圳福田店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-007', name:'张红梅', store:'广州天河城店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-008', name:'刘雅琴', store:'广州天河城店', level:'主管', edu:'高中' },
+                    { id:'DWX-QG-009', name:'周志远', store:'广州珠江新城店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-010', name:'郑晓东', store:'北京朝阳大悦城店', level:'主管', edu:'大专' },
+                    { id:'DWX-QG-011', name:'孙丽萍', store:'北京朝阳大悦城店', level:'主管', edu:'高中' },
+                    { id:'DWX-QG-012', name:'马艳芳', store:'北京西单店', level:'主管', edu:'高中' },
+                    { id:'DWX-QG-013', name:'杨建平', store:'杭州西湖店', level:'主管', edu:'大专' }
+                ],
+                backSupervisor: [
+                    { id:'DWX-HG-001', name:'胡志刚', store:'浦东旗舰店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-002', name:'朱小芳', store:'浦东旗舰店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-003', name:'钱文华', store:'静安寺店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-004', name:'孙大勇', store:'深圳南山店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-005', name:'贺丽娜', store:'深圳南山店', level:'主管', edu:'高中' },
+                    { id:'DWX-HG-006', name:'郑海燕', store:'深圳福田店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-007', name:'陈国梁', store:'广州天河城店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-008', name:'林秀英', store:'北京朝阳大悦城店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-009', name:'何志伟', store:'北京朝阳大悦城店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-010', name:'许晓红', store:'北京西单店', level:'主管', edu:'高中' },
+                    { id:'DWX-HG-011', name:'冯建国', store:'杭州西湖店', level:'主管', edu:'中专' },
+                    { id:'DWX-HG-012', name:'韩小云', store:'杭州西湖店', level:'主管', edu:'中专' }
+                ],
+                backbone: [
+                    { id:'DWX-BG-001', name:'曾志明', store:'浦东旗舰店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-002', name:'丁小丽', store:'浦东旗舰店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-003', name:'魏建军', store:'静安寺店', level:'骨干', edu:'大专' },
+                    { id:'DWX-BG-004', name:'高红霞', store:'深圳南山店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-005', name:'唐志伟', store:'深圳南山店', level:'骨干', edu:'大专' },
+                    { id:'DWX-BG-006', name:'蒋美华', store:'深圳福田店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-007', name:'秦海涛', store:'广州天河城店', level:'骨干', edu:'大专' },
+                    { id:'DWX-BG-008', name:'薛小英', store:'广州珠江新城店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-009', name:'谢志强', store:'北京朝阳大悦城店', level:'骨干', edu:'大专' },
+                    { id:'DWX-BG-010', name:'程秀英', store:'北京西单店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-011', name:'钟建华', store:'杭州西湖店', level:'骨干', edu:'大专' },
+                    { id:'DWX-BG-012', name:'苏小红', store:'杭州西湖店', level:'骨干', edu:'高中' },
+                    { id:'DWX-BG-013', name:'邓志刚', store:'徐汇日月光店', level:'骨干', edu:'大专' }
+                ]
+            },
+            transfers: [
+                { name:'王大伟', from:'静安寺店', to:'徐汇日月光店', fromPos:'后厨主管', toPos:'厨师长', fromLevel:'主管', toLevel:'副厨师长', type:'晋升调动', date:'2022-06-01' },
+                { name:'李小龙', from:'深圳福田店', to:'深圳南山店', fromPos:'前厅主管', toPos:'前厅主管', type:'平级调动', date:'2021-12-01' },
+                { name:'钱文华', from:'浦东旗舰店', to:'静安寺店', fromPos:'后厨主管', toPos:'后厨主管', type:'平级调动', date:'2022-03-15' },
+                { name:'唐志伟', from:'广州天河城店', to:'深圳南山店', fromPos:'骨干', toPos:'骨干', type:'平级调动', date:'2022-08-01' },
+                { name:'谢志强', from:'深圳南山店', to:'北京朝阳大悦城店', fromPos:'骨干', toPos:'骨干', type:'平级调动', date:'2023-01-15' },
+                { name:'郑晓东', from:'广州天河城店', to:'北京朝阳大悦城店', fromPos:'前厅主管', toPos:'前厅主管', type:'平级调动', date:'2022-05-10' },
+                { name:'何建华', from:'深圳福田店', to:'广州珠江新城店', fromPos:'后厨主管', toPos:'厨师长', type:'晋升调动', date:'2022-11-01' }
+            ],
+            blacklist: ['李四', '王五', '孙八']
+        };
+
+        DWX.storeMap = Object.fromEntries(DWX.stores.map(s => [s.name, s]));
+
+        /* ---------- 2. 对话状态管理 ---------- */
+        let talentChat = {
+            active: false,
+            round: 0,
+            position: '店长',
+            count: 1,
+            storeInfo: null,
+            city: null,
+            format: null,
+            emphasis: null,
+            hardConstraints: [],
+            softConstraints: [],
+            allCandidates: [],
+            starCandidates: [],
+            otherCandidates: [],
+            selected: null,
+            lastQuery: ''
+        };
+
+        function resetTalentChat() {
+            talentChat = {
+                active: false, round: 0, position: '店长', count: 1,
+                storeInfo: null, city: null, format: null, emphasis: null,
+                hardConstraints: [], softConstraints: [],
+                allCandidates: [], starCandidates: [], otherCandidates: [],
+                selected: null, lastQuery: ''
+            };
+        }
+
+        function getStoreByName(name) {
+            return DWX.storeMap[name] || null;
+        }
+
+        function getStoreRevenue(storeName) {
+            return DWX.storeRevenue[storeName] || { profitRate: 0, patrolScore: 0, negativeReviews: 0 };
+        }
+
+        function getStoreTurnover(storeName) {
+            return DWX.storeTurnover[storeName] || { turnoverRate: 15, quotaRate: 90 };
+        }
+
+        /* ---------- 3. ⭐推荐标记检查 ---------- */
+        function checkStarForStoreManager(emp) {
+            const rev = getStoreRevenue(emp.store);
+            const turn = getStoreTurnover(emp.store);
+            if (emp.level !== '店长' && emp.level !== '副店长') return false;
+            if (rev.profitRate < 90) return false;
+            if (turn.turnoverRate > 20 && turn.quotaRate < 90) return false;
+            if (rev.patrolScore < 80) return false;
+            if (rev.negativeReviews > 20) return false;
+            if (emp.blacklisted) return false;
+            return true;
+        }
+
+        function getStarFailReasons(emp) {
+            const rev = getStoreRevenue(emp.store);
+            const turn = getStoreTurnover(emp.store);
+            const reasons = [];
+            if (emp.level !== '店长' && emp.level !== '副店长') reasons.push('职级条件');
+            if (rev.profitRate < 90) reasons.push('利润完成率' + rev.profitRate + '%<90%');
+            if (turn.turnoverRate > 20 && turn.quotaRate < 90) reasons.push('离职率' + turn.turnoverRate + '%>20%且编制率' + turn.quotaRate + '%<90%');
+            if (rev.patrolScore < 80) reasons.push('巡店评分' + rev.patrolScore + '<80');
+            if (rev.negativeReviews > 20) reasons.push('中差评超阈值');
+            return reasons;
+        }
+
+        /* ---------- 4. 8维度数据生成 ---------- */
+        function getDimensionData(emp) {
+            const rev = getStoreRevenue(emp.store);
+            const turn = getStoreTurnover(emp.store);
+            return {
+                d1: { icon:'👤', name:'专业能力', value: emp.level === '店长' ? '已达' : '差1级', detail: emp.level + '，' + emp.edu + '学历，近6月奖' + emp.rewards + '惩' + emp.penalties },
+                d2: { icon:'💰', name:'经营业绩', value: '利润' + rev.profitRate + '%', detail: '巡店' + rev.patrolScore + '分，近6月中差评' + rev.negativeReviews + '条' },
+                d3: { icon:'👥', name:'团队管理', value: '离职率' + turn.turnoverRate + '%', detail: '编制达成' + turn.quotaRate + '%' },
+                d4: { icon:'📋', name:'执行力', value: '培训' + emp.trainingRate + '%', detail: emp.rewards > 0 ? '获奖励' + emp.rewards + '次' : '暂无奖惩记录' },
+                d5: { icon:'🔄', name:'适应力', value: '跨店' + emp.transfers + '次', detail: emp.transfers === 0 ? '原门店离职率稳定' + turn.turnoverRate + '%' : '有跨店经验' },
+                d6: { icon:'🛡️', name:'人品', value: emp.blacklisted ? '⚠️有风险' : '无负面记录', detail: emp.penalties > 0 ? '有惩罚记录' : '暂无异常' },
+                d8: { icon:'📈', name:'成长力', value: '晋升' + emp.promotionCount + '次', detail: '打卡连续' + emp.checkinDays + '天，证书' + emp.certificates + '个' },
+                d9: { icon:'✅', name:'可行性', value: '编制' + turn.quotaRate + '%', detail: '薪资' + emp.salaryRank }
+            };
+        }
+
+        /* ---------- 5. 候选人筛选与排序 ---------- */
+        function getStoreManagerCandidates() {
+            return DWX.employees.storeManager.filter(e => {
+                if (e.blacklisted) return false;
+                if (e.status !== '正式' && e.status !== '试用') return false;
+                const rev = getStoreRevenue(e.store);
+                const turn = getStoreTurnover(e.store);
+                if (turn.turnoverRate > 30) return false;
+                if (rev.patrolScore < 60) return false;
+                return true;
+            });
+        }
+
+        function filterByCity(candidates, city) {
+            if (!city) return candidates;
+            return candidates.filter(e => {
+                const store = getStoreByName(e.store);
+                return store && store.city.includes(city);
+            });
+        }
+
+        function filterByFormat(candidates, format) {
+            if (!format) return candidates;
+            return candidates.filter(e => {
+                const store = getStoreByName(e.store);
+                return store && store.format.includes(format);
+            });
+        }
+
+        function sortCandidatesByDefault(candidates) {
+            const star = [];
+            const other = [];
+            candidates.forEach(c => {
+                if (checkStarForStoreManager(c)) {
+                    star.push(c);
+                } else {
+                    other.push(c);
+                }
+            });
+            star.sort((a, b) => {
+                const revA = getStoreRevenue(a.store);
+                const revB = getStoreRevenue(b.store);
+                return revB.profitRate - revA.profitRate;
+            });
+            other.sort((a, b) => {
+                const revA = getStoreRevenue(a.store);
+                const revB = getStoreRevenue(b.store);
+                return revB.profitRate - revA.profitRate;
+            });
+            return { star, other };
+        }
+
+        function sortByEmphasis(candidates, emphasis) {
+            const star = [];
+            const other = [];
+            candidates.forEach(c => {
+                if (checkStarForStoreManager(c)) {
+                    star.push(c);
+                } else {
+                    other.push(c);
+                }
+            });
+            const emphasisMap = {
+                '经营': 'd2', '赚钱': 'd2', '利润': 'd2',
+                '团队': 'd3', '管人': 'd3', '带团队': 'd3', '人员稳定': 'd3',
+                '执行': 'd4', '标准': 'd4',
+                '适应': 'd5', '换店': 'd5', '开荒': 'd5',
+                '人品': 'd6', '靠谱': 'd6', '忠诚': 'd6',
+                '成长': 'd8', '潜力': 'd8', '后劲': 'd8',
+                '可行': 'd9', '调动': 'd9'
+            };
+            const dimKey = emphasisMap[emphasis] || null;
+            star.sort((a, b) => {
+                if (!dimKey) {
+                    const revA = getStoreRevenue(a.store);
+                    const revB = getStoreRevenue(b.store);
+                    return revB.profitRate - revA.profitRate;
+                }
+                return 0;
+            });
+            return { star, other };
+        }
+
+        /* ---------- 6. 5轮对话输出生成 ---------- */
+
+        /* 第1轮：初次推荐 */
+        function generateTalentRound1() {
+            const pool = getStoreManagerCandidates();
+            const { star, other } = sortCandidatesByDefault(pool);
+            talentChat.allCandidates = pool;
+            talentChat.starCandidates = star;
+            talentChat.otherCandidates = other;
+
+            let html = '<div style="font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:8px;">🎯 为您推荐店长</div>';
+            html += '<div style="font-size:12px;color:#888;margin-bottom:10px;">从全公司范围内筛选到' + pool.length + '名符合条件的候选人：</div>';
+
+            if (star.length > 0) {
+                html += '<div style="font-size:12px;font-weight:600;color:#F5A623;margin-bottom:6px;border-bottom:1px solid #F0F0F0;padding-bottom:4px;">━━━━ ⭐推荐候选人 ━━━━</div>';
+                star.slice(0, 5).forEach((emp, i) => {
+                    const dim = getDimensionData(emp);
+                    const rev = getStoreRevenue(emp.store);
+                    html += '<div style="background:#FFFDF5;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #F5A623;">';
+                    html += '<div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:4px;">' + (i+1) + '. ' + emp.name + ' | ' + emp.position + '·' + emp.store + ' | ⭐推荐</div>';
+                    html += '<div style="font-size:11px;color:#555;line-height:1.6;">';
+                    html += '   💰 <b>经营业绩</b>：利润' + rev.profitRate + '% | 巡店' + rev.patrolScore + '分<br>';
+                    html += '   👥 <b>团队管理</b>：离职率' + getStoreTurnover(emp.store).turnoverRate + '% | 编制达成' + getStoreTurnover(emp.store).quotaRate + '%<br>';
+                    html += '   👤 <b>专业能力</b>：' + dim.d1.detail;
+                    html += '</div>';
+                    html += '<div style="font-size:11px;color:#4A90E2;margin-top:4px;">💡 推荐理由：' + (rev.profitRate >= 98 ? '门店经营数据全面优秀，综合能力强' : '管理规范，综合表现良好') + '</div>';
+                    html += '</div>';
+                });
+                if (star.length > 5) {
+                    html += '<div style="font-size:11px;color:#999;padding:4px 0;">...还有' + (star.length-5) + '名⭐候选人</div>';
+                }
+            }
+
+            if (other.length > 0) {
+                html += '<div style="font-size:12px;font-weight:600;color:#888;margin:6px 0;border-bottom:1px solid #F0F0F0;padding-bottom:4px;">━━━━ 其他候选人 ━━━━</div>';
+                other.slice(0, 3).forEach((emp, i) => {
+                    const reasons = getStarFailReasons(emp);
+                    html += '<div style="padding:6px 10px;font-size:12px;color:#555;">' + (star.length+1+i) + '. ' + emp.name + ' | ' + emp.position + '·' + emp.store + '<br><span style="color:#999;font-size:11px;">未获⭐：' + reasons.join('、') + '</span></div>';
+                });
+                if (other.length > 3) {
+                    html += '<div style="font-size:11px;color:#999;padding:2px 10px;">...还有' + (other.length-3) + '名候选人</div>';
+                }
+            }
+
+            html += '<div style="font-size:12px;color:#4A90E2;margin-top:10px;padding-top:8px;border-top:1px dashed #E0E0E0;">💡 如果您能补充新店的具体信息（如所在城市、业态类型），我可以进一步优化推荐排序。<br>也可以随时追问候选人详情，或对比候选人。</div>';
+
+            talentChat.active = true;
+            talentChat.round = 1;
+            updateTalentPrompts(1);
+            return html;
+        }
+
+        /* 第2轮：地点/业态筛选 */
+        function generateTalentRound2(query) {
+            const cityMatch = query.match(/(上海|深圳|广州|北京|杭州|成都)/);
+            const formatMatch = query.match(/(火锅|中餐|快餐)/);
+            if (cityMatch) talentChat.city = cityMatch[1];
+            if (formatMatch) talentChat.format = formatMatch[1];
+
+            let pool = talentChat.allCandidates;
+            if (talentChat.city) pool = filterByCity(pool, talentChat.city);
+            if (talentChat.format) pool = filterByFormat(pool, talentChat.format);
+
+            const { star, other } = sortCandidatesByDefault(pool);
+            talentChat.starCandidates = star;
+            talentChat.otherCandidates = other;
+
+            let html = '<div style="font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:4px;">🎯 店长推荐';
+            if (talentChat.city && talentChat.format) html += '·' + talentChat.city + talentChat.format;
+            else if (talentChat.city) html += '·' + talentChat.city + '地区';
+            html += '</div>';
+
+            if (star.length === 0 && other.length === 0) {
+                html += '<div style="background:#FFF5F5;border-radius:8px;padding:12px;margin:8px 0;border-left:3px solid #E74C3C;">';
+                html += '<div style="font-size:13px;font-weight:600;color:#E74C3C;">😅 未找到符合条件的候选人</div>';
+                html += '<div style="font-size:12px;color:#666;margin-top:4px;">建议放宽条件：<br>• 扩大城市范围<br>• 不考虑业态匹配<br>• 考虑副店长晋升</div></div>';
+                return html;
+            }
+
+            if (star.length > 0) {
+                html += '<div style="font-size:12px;font-weight:600;color:#F5A623;margin:6px 0;border-bottom:1px solid #F0F0F0;padding-bottom:4px;">━━━━ ⭐推荐候选人 ━━━━</div>';
+                star.slice(0, 5).forEach((emp, i) => {
+                    const dim = getDimensionData(emp);
+                    const rev = getStoreRevenue(emp.store);
+                    const storeInfo = getStoreByName(emp.store);
+                    const locationTag = storeInfo ? '【' + storeInfo.city + '·' + storeInfo.district + '】' : '';
+                    html += '<div style="background:#FFFDF5;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #F5A623;">';
+                    html += '<div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:4px;">' + (i+1) + '. ' + emp.name + ' | ' + emp.position + '·' + emp.store + ' | ⭐推荐 ' + locationTag + '</div>';
+                    html += '<div style="font-size:11px;color:#555;line-height:1.6;">';
+                    html += '   💰 <b>经营业绩</b>：利润' + rev.profitRate + '% | 巡店' + rev.patrolScore + '分<br>';
+                    html += '   👥 <b>团队管理</b>：离职率' + getStoreTurnover(emp.store).turnoverRate + '% | 编制达成' + getStoreTurnover(emp.store).quotaRate + '%<br>';
+                    html += '   👤 <b>专业能力</b>：' + dim.d1.detail;
+                    html += '</div>';
+                    html += '</div>';
+                });
+            }
+
+            html += '<div style="font-size:12px;color:#4A90E2;margin-top:10px;padding-top:8px;border-top:1px dashed #E0E0E0;">💡 如需调整侧重，请随时告诉我（如"重点看团队管理能力"）。<br>也可对比候选人。</div>';
+
+            talentChat.round = 2;
+            updateTalentPrompts(2);
+            return html;
+        }
+
+        /* 第3轮：侧重调整 */
+        function generateTalentRound3(query) {
+            let emphasis = null;
+            const emphasisKeywords = {
+                '经营': '经营', '赚钱': '经营', '利润': '经营',
+                '团队': '团队', '管人': '团队', '带团队': '团队', '人员稳定': '团队',
+                '执行': '执行', '标准': '执行',
+                '适应': '适应', '换店': '适应', '开荒': '适应',
+                '人品': '人品', '靠谱': '人品',
+                '成长': '成长', '潜力': '成长',
+                '可行': '可行', '调动': '可行'
+            };
+            for (const [key, val] of Object.entries(emphasisKeywords)) {
+                if (query.includes(key)) { emphasis = val; break; }
+            }
+            if (!emphasis) emphasis = '团队';
+            talentChat.emphasis = emphasis;
+
+            const pool = talentChat.city ? filterByCity(talentChat.allCandidates, talentChat.city) : talentChat.allCandidates;
+            const { star, other } = sortByEmphasis(pool, emphasis);
+            talentChat.starCandidates = star;
+            talentChat.otherCandidates = other;
+
+            const emphasisLabels = { '经营':'经营业绩验证', '团队':'团队管理能力', '执行':'执行力与标准落地', '适应':'适应力与韧性', '人品':'人品与价值观', '成长':'成长发展潜力', '可行':'调动可行性' };
+            const emphasisIcons = { '经营':'💰', '团队':'👥', '执行':'📋', '适应':'🔄', '人品':'🛡️', '成长':'📈', '可行':'✅' };
+
+            let html = '<div style="font-size:13px;color:#52C41A;font-weight:600;margin-bottom:6px;">👍 已调整侧重维度</div>';
+            html += '<div style="font-size:12px;color:#888;margin-bottom:8px;">当前侧重：' + (emphasisIcons[emphasis] || '') + emphasisLabels[emphasis] || emphasis + '</div>';
+
+            if (star.length > 0) {
+                html += '<div style="font-size:12px;font-weight:600;color:#F5A623;margin:6px 0;border-bottom:1px solid #F0F0F0;padding-bottom:4px;">━━━━ ⭐推荐候选人 ━━━━</div>';
+                star.slice(0, 5).forEach((emp, i) => {
+                    const dim = getDimensionData(emp);
+                    const rev = getStoreRevenue(emp.store);
+                    html += '<div style="background:#FFFDF5;border-radius:8px;padding:10px;margin-bottom:8px;border-left:3px solid #F5A623;">';
+                    html += '<div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:4px;">' + (i+1) + '. ' + emp.name + ' | ' + emp.position + '·' + emp.store + ' | ⭐推荐</div>';
+                    html += '<div style="font-size:11px;color:#555;line-height:1.6;">';
+                    if (emphasis === '团队') {
+                        html += '   ⭐<b>侧重维度·团队管理</b>：离职率' + getStoreTurnover(emp.store).turnoverRate + '%，' + (getStoreTurnover(emp.store).turnoverRate <= 10 ? '团队稳定性极高' : '团队稳定') + '<br>';
+                    } else if (emphasis === '经营') {
+                        html += '   ⭐<b>侧重维度·经营业绩</b>：利润' + rev.profitRate + '%，' + (rev.profitRate >= 100 ? '超额完成目标' : '接近完成') + '<br>';
+                    }
+                    html += '   💰 经营业绩：利润' + rev.profitRate + '% | 巡店' + rev.patrolScore + '分<br>';
+                    html += '   👥 团队管理：离职率' + getStoreTurnover(emp.store).turnoverRate + '% | 编制达成' + getStoreTurnover(emp.store).quotaRate + '%<br>';
+                    html += '   👤 专业能力：' + dim.d1.detail;
+                    html += '</div>';
+                    html += '</div>';
+                });
+            }
+
+            html += '<div style="font-size:12px;color:#4A90E2;margin-top:10px;padding-top:8px;border-top:1px dashed #E0E0E0;">💡 如需调整侧重，请随时告诉我。</div>';
+
+            talentChat.round = 3;
+            updateTalentPrompts(3);
+            return html;
+        }
+
+        /* 第4轮：对比 */
+        function getValidCandidateName(name) {
+            if (!name) return null;
+            return talentChat.allCandidates.find(e => e.name === name) ? name : null;
+        }
+
+        function getTopTwoCandidates() {
+            const star = talentChat.starCandidates;
+            if (star.length >= 2) return [star[0].name, star[1].name];
+            if (star.length === 1 && talentChat.otherCandidates.length >= 1) return [star[0].name, talentChat.otherCandidates[0].name];
+            if (talentChat.otherCandidates.length >= 2) return [talentChat.otherCandidates[0].name, talentChat.otherCandidates[1].name];
+            return [null, null];
+        }
+
+        function generateTalentRound4(query) {
+            let nameA = null, nameB = null;
+            const allCandidates = talentChat.allCandidates;
+            const names = query.match(/[\u4e00-\u9fa5]{2,3}(?:和|与|vs|VS|对比|比较)[\u4e00-\u9fa5]{2,3}/);
+            if (names) {
+                const parts = names[0].split(/和|与|vs|VS|对比|比较/);
+                nameA = getValidCandidateName(parts[0].trim());
+                nameB = getValidCandidateName(parts[1] ? parts[1].trim() : null);
+            }
+            if (!nameA || !nameB) {
+                const nameMatch = query.match(/([\u4e00-\u9fa5]{2,3})/g);
+                if (nameMatch && nameMatch.length >= 2) {
+                    nameA = getValidCandidateName(nameMatch[0]);
+                    nameB = getValidCandidateName(nameMatch[1]);
+                    if (!nameA || !nameB) {
+                        const topTwo = getTopTwoCandidates();
+                        nameA = topTwo[0]; nameB = topTwo[1];
+                    }
+                } else {
+                    const topTwo = getTopTwoCandidates();
+                    nameA = topTwo[0]; nameB = topTwo[1];
+                }
+            }
+
+            const empA = allCandidates.find(e => e.name === nameA);
+            const empB = allCandidates.find(e => e.name === nameB);
+            if (!empA || !empB) {
+                return '<div style="font-size:13px;color:#E74C3C;">⚠️ 当前没有足够的候选人来对比，请先调整筛选条件</div>';
+            }
+
+            const dimA = getDimensionData(empA);
+            const dimB = getDimensionData(empB);
+            const revA = getStoreRevenue(empA.store);
+            const revB = getStoreRevenue(empB.store);
+            const turnA = getStoreTurnover(empA.store);
+            const turnB = getStoreTurnover(empB.store);
+
+            function compareVal(a, b, label) {
+                if (typeof a === 'number' && typeof b === 'number') {
+                    if (a > b) return '<span style="color:#4A90E2;font-weight:600;">' + label + '</span>';
+                    if (a < b) return '<span style="color:#F5A623;font-weight:600;">' + label + '</span>';
+                }
+                return '<span style="color:#999;">持平</span>';
+            }
+
+            let html = '<div style="font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:8px;">⚖️ ' + empA.name + ' vs ' + empB.name + ' 对比</div>';
+
+            html += '<table style="width:100%;font-size:12px;border-collapse:collapse;margin-bottom:8px;">';
+            html += '<tr style="background:#F5F7FA;"><th style="padding:6px 8px;text-align:left;color:#888;">维度</th><th style="padding:6px 8px;text-align:center;color:#4A90E2;">' + empA.name + '</th><th style="padding:6px 8px;text-align:center;color:#F5A623;">' + empB.name + '</th><th style="padding:6px 8px;text-align:center;color:#888;">优势方</th></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">💰 经营业绩</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">利润' + revA.profitRate + '%</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">利润' + revB.profitRate + '%</td><td style="padding:5px 8px;text-align:center;">' + compareVal(revA.profitRate, revB.profitRate, empA.name) + '</td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">👥 团队管理</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">离职率' + turnA.turnoverRate + '%</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">离职率' + turnB.turnoverRate + '%</td><td style="padding:5px 8px;text-align:center;">' + compareVal(100-turnA.turnoverRate, 100-turnB.turnoverRate, empA.name) + '</td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">👤 专业能力</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">' + empA.edu + '，' + empA.level + '</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">' + empB.edu + '，' + empB.level + '</td><td style="padding:5px 8px;text-align:center;"><span style="color:#999;">持平</span></td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">📋 执行力</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">培训' + empA.trainingRate + '%</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">培训' + empB.trainingRate + '%</td><td style="padding:5px 8px;text-align:center;">' + compareVal(empA.trainingRate, empB.trainingRate, empA.name) + '</td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">🔄 适应力</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">跨店' + empA.transfers + '次</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">跨店' + empB.transfers + '次</td><td style="padding:5px 8px;text-align:center;">' + compareVal(empA.transfers, empB.transfers, empA.name) + '</td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">🛡️ 人品</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">' + (empA.rewards > 0 ? '有奖励' : '无奖惩') + '</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">' + (empB.rewards > 0 ? '有奖励' : '无奖惩') + '</td><td style="padding:5px 8px;text-align:center;"><span style="color:#999;">持平</span></td></tr>';
+            html += '<tr style="border-bottom:1px solid #F0F0F0;"><td style="padding:5px 8px;">📈 成长力</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">晋升' + empA.promotionCount + '次</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">晋升' + empB.promotionCount + '次</td><td style="padding:5px 8px;text-align:center;">' + compareVal(empA.promotionCount, empB.promotionCount, empA.name) + '</td></tr>';
+            html += '<tr><td style="padding:5px 8px;">✅ 可行性</td><td style="padding:5px 8px;text-align:center;color:#4A90E2;">编制' + turnA.quotaRate + '%</td><td style="padding:5px 8px;text-align:center;color:#F5A623;">编制' + turnB.quotaRate + '%</td><td style="padding:5px 8px;text-align:center;">' + compareVal(turnA.quotaRate, turnB.quotaRate, empA.name) + '</td></tr>';
+            html += '</table>';
+
+            const aAdvantages = (revA.profitRate > revB.profitRate ? 1 : 0) + ((100-turnA.turnoverRate) > (100-turnB.turnoverRate) ? 1 : 0) + (empA.promotionCount > empB.promotionCount ? 1 : 0);
+            html += '<div style="background:#FFF8E1;border-radius:6px;padding:8px;font-size:11px;color:#8D6E00;margin-bottom:6px;">📌 综合结论：<br>';
+            if (aAdvantages >= 2) {
+                html += '• ' + empA.name + '在经营业绩、团队管理等方面均优于' + empB.name + '<br>';
+                html += '• ' + empB.name + '在部分维度有优势<br>';
+            } else {
+                html += '• 两者各有优势，需根据具体需求选择<br>';
+            }
+            html += '💡 建议：侧重综合能力选' + empA.name + '，侧重特定需求可进一步了解</div>';
+
+            talentChat.round = 4;
+            updateTalentPrompts(4);
+            return html;
+        }
+
+        /* 第5轮：确认选择 */
+        function generateTalentRound5(query) {
+            const nameMatch = query.match(/[\u4e00-\u9fa5]{2,3}/g);
+            let selectedName = null;
+            if (nameMatch) {
+                for (const n of nameMatch) {
+                    const found = talentChat.allCandidates.find(e => e.name === n);
+                    if (found) { selectedName = found.name; break; }
+                }
+            }
+            if (!selectedName && talentChat.starCandidates.length > 0) {
+                selectedName = talentChat.starCandidates[0].name;
+            }
+            const emp = talentChat.allCandidates.find(e => e.name === selectedName);
+            if (!emp) {
+                return '<div style="font-size:13px;color:#E74C3C;">⚠️ 未找到该候选人信息</div>';
+            }
+            talentChat.selected = emp;
+
+            const dim = getDimensionData(emp);
+            const rev = getStoreRevenue(emp.store);
+            const turn = getStoreTurnover(emp.store);
+
+            let html = '<div style="font-size:15px;font-weight:700;color:#52C41A;margin-bottom:8px;">✅ 已锁定' + emp.name + '</div>';
+            html += '<div style="background:#F8FAFC;border-radius:8px;padding:10px;margin-bottom:8px;">';
+            html += '<div style="font-size:12px;color:#888;margin-bottom:4px;">📋 候选人信息：</div>';
+            html += '<div style="font-size:13px;line-height:1.8;">';
+            html += '• 姓名：' + emp.name + '<br>';
+            html += '• 现职：' + emp.store + ' ' + emp.position + '<br>';
+            html += '• 司龄：' + emp.tenure + '年+<br>';
+            html += '• 学历：' + emp.edu + '<br>';
+            html += '• 💰 利润完成率：' + rev.profitRate + '%<br>';
+            html += '• 👥 门店离职率：' + turn.turnoverRate + '%<br>';
+            html += '• 📋 培训完成率：' + emp.trainingRate + '%<br>';
+            html += '• 📈 晋升次数：' + emp.promotionCount + '次';
+            html += '</div></div>';
+
+            html += '<div style="background:#F0F7FF;border-radius:8px;padding:10px;font-size:12px;color:#4A90E2;line-height:1.6;">';
+            html += '💡 后续建议：<br>';
+            html += '1. 确认' + emp.name + '的调动意愿<br>';
+            html += '2. 了解其对上海新店位置的通勤意愿<br>';
+            html += '3. 评估是否需要薪资调整<br>';
+            html += '4. 确认交接安排（' + emp.store + '的继任人选）';
+            html += '</div>';
+
+            html += '<div style="font-size:12px;color:#4A90E2;margin-top:10px;padding-top:8px;border-top:1px dashed #E0E0E0;">💬 有需要随时找我~</div>';
+
+            talentChat.round = 5;
+            hideTalentPromptBar();
+            return html;
+        }
+
+        function showTalentPromptBar() {
+            const bar = document.getElementById('talent-prompt-bar');
+            if (bar) bar.style.display = 'block';
+        }
+
+        function hideTalentPromptBar() {
+            const bar = document.getElementById('talent-prompt-bar');
+            if (bar) bar.style.display = 'none';
+        }
+
+        let isTalentProcessing = false;
+
+        function sendTalentPrompt(prompt) {
+            if (isTalentProcessing) return;
+            document.getElementById('input-field').value = prompt;
+            sendMessage();
+        }
+
+        function updateTalentPrompts(round) {
+            const bar = document.getElementById('talent-prompt-bar');
+            if (!bar) return;
+            let html = '<div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;">';
+            if (round === 1) {
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'店在上海\')">📍店在上海</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'重点看团队管理\')">👥重点看团队</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'对比前两名\')">⚖️对比前两名</span>';
+            } else if (round === 2) {
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'重点看团队管理\')">👥重点看团队</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'重点看经营能力\')">💰重点看经营</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'对比前两名\')">⚖️对比前两名</span>';
+            } else if (round === 3) {
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'对比前两名\')">⚖️对比前两名</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'重点看经营能力\')">💰重点看经营</span>';
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'就选王建国\')">✅就选王建国</span>';
+            } else if (round === 4) {
+                const topTwo = getTopTwoCandidates();
+                if (topTwo[0]) {
+                    html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'就选' + topTwo[0] + '\')">✅就选' + topTwo[0] + '</span>';
+                }
+                if (topTwo[1]) {
+                    html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'再看看' + topTwo[1] + '\')">👀再看看' + topTwo[1] + '</span>';
+                }
+                html += '<span class="suggest-tag" onclick="sendTalentPrompt(\'重新推荐\')">🔄重新推荐</span>';
+            }
+            html += '</div>';
+            bar.innerHTML = html;
+        }
+
+        /* ---------- 7. 主入口：解析用户输入并路由到对应轮次 ---------- */
+        function handleTalentQuery(query) {
+            if (/重新推荐|重新来|再来|换个岗位/.test(query)) {
+                resetTalentChat();
+                hideTalentPromptBar();
+                talentChat.position = '店长';
+                talentChat.count = 1;
+                const result = generateTalentRound1();
+                showTalentPromptBar();
+                return result;
+            }
+
+            if (/再看看/.test(query) && talentChat.round >= 2) {
+                const nameMatch = query.match(/[\u4e00-\u9fa5]{2,3}/g);
+                let targetName = null;
+                if (nameMatch) {
+                    for (const n of nameMatch) {
+                        const found = talentChat.allCandidates.find(e => e.name === n);
+                        if (found) { targetName = found.name; break; }
+                    }
+                }
+                if (targetName) {
+                    const emp = talentChat.allCandidates.find(e => e.name === targetName);
+                    const dim = getDimensionData(emp);
+                    const rev = getStoreRevenue(emp.store);
+                    const turn = getStoreTurnover(emp.store);
+                    let html = '<div style="font-size:14px;font-weight:600;color:#1A1A1A;margin-bottom:6px;">🔍 ' + emp.name + ' 详情</div>';
+                    html += '<div style="font-size:12px;color:#555;line-height:1.8;background:#F8FAFC;border-radius:8px;padding:10px;">';
+                    html += '• 现职：' + emp.store + ' ' + emp.position + '<br>';
+                    html += '• 司龄：' + emp.tenure + '年 | 学历：' + emp.edu + '<br>';
+                    html += '• 💰 利润完成率：' + rev.profitRate + '% | 巡店：' + rev.patrolScore + '分<br>';
+                    html += '• 👥 离职率：' + turn.turnoverRate + '% | 编制达成：' + turn.quotaRate + '%<br>';
+                    html += '• 📈 晋升：' + emp.promotionCount + '次 | 培训：' + emp.trainingRate + '%<br>';
+                    html += '• 🛡️ 奖惩：奖' + emp.rewards + '惩' + emp.penalties + ' | 打卡：' + emp.checkinDays + '天</div>';
+                    html += '<div style="font-size:12px;color:#4A90E2;margin-top:8px;">💡 如需锁定该候选人，请说"就选' + emp.name + '"</div>';
+                    return html;
+                }
+            }
+
+            if (!talentChat.active) {
+                resetTalentChat();
+                talentChat.position = '店长';
+                talentChat.count = 1;
+                const result = generateTalentRound1();
+                showTalentPromptBar();
+                return result;
+            }
+
+            const isCompare = /(和|与|vs|VS|对比|比较|哪个好|pk)/.test(query) || /对比/.test(query);
+            const isConfirm = /(就选|锁定|决定选|确认选|好就|行就|选)/.test(query) && talentChat.round >= 2;
+            const isEmphasis = /(重点|侧重|看|关注|突出)/.test(query) && /(团队|经营|管理|执行|适应|人品|成长|潜力)/.test(query);
+            const isLocation = /(上海|深圳|广州|北京|杭州|成都|火锅|中餐|快餐|业态)/.test(query);
+
+            if (talentChat.round === 5) {
+                hideTalentPromptBar();
+                resetTalentChat();
+                return generateTalentRound1();
+            }
+
+            if (isCompare && talentChat.round >= 1) {
+                return generateTalentRound4(query);
+            }
+            if (isConfirm && talentChat.round >= 2) {
+                hideTalentPromptBar();
+                return generateTalentRound5(query);
+            }
+            if (isEmphasis && talentChat.round >= 1) {
+                return generateTalentRound3(query);
+            }
+            if (isLocation && talentChat.round >= 1) {
+                return generateTalentRound2(query);
+            }
+            if (talentChat.round === 1) {
+                return generateTalentRound2(query);
+            }
+
+            return generateTalentRound2(query);
+        }
     </script>
 </body>
 </html>
