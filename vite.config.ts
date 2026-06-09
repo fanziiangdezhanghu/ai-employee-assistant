@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/ai-employee-assistant/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
