@@ -1,0 +1,155 @@
+/* ========== SaaS·商务蓝 Design Tokens ========== */
+:root {
+  /* 主色 */
+  --accent-primary: #1677FF;
+  --accent-primary-light: #E6F4FF;
+  --accent-primary-dark: #0958D9;
+
+  /* 语义色 */
+  --color-success: #52C41A;
+  --color-success-light: #F6FFED;
+  --color-warning: #FAAD14;
+  --color-warning-light: #FFFBE6;
+  --color-danger: #FF4D4F;
+  --color-danger-light: #FFF2F0;
+  --color-info: #1677FF;
+  --color-info-light: #E6F4FF;
+
+  /* 文章类型色 */
+  --type-quick-start: #722ED1;
+  --type-guide: #1677FF;
+  --type-faq: #FA8C16;
+
+  /* 中性色 */
+  --text-primary: #262626;
+  --text-secondary: #434343;
+  --text-tertiary: #8C8C8C;
+  --text-placeholder: #BFBFBF;
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #FAFAFA;
+  --bg-white: #FFFFFF;
+  --border-color: #F0F0F0;
+  --border-strong: #D9D9D9;
+
+  /* 间距 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  /* 字体 */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+
+  /* Element Plus 主题覆盖 */
+  --el-color-primary: #1677FF;
+  --el-color-primary-light-3: #4096FF;
+  --el-color-primary-dark-2: #0958D9;
+  --el-color-success: #52C41A;
+  --el-color-warning: #FAAD14;
+  --el-color-danger: #FF4D4F;
+  --el-color-info: #8C8C8C;
+  --el-border-radius-base: 6px;
+  --el-font-size-base: 14px;
+  --el-menu-item-height: 44px;
+}
+
+/* ========== 全局重置 ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  height: 100%;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-primary-dark);
+}
+
+/* ========== 表格全局覆盖 ========== */
+.el-table th.el-table__cell {
+  background-color: var(--bg-secondary, #FAFAFA) !important;
+  color: var(--text-tertiary, #8C8C8C) !important;
+  font-weight: 600;
+}
+
+.el-table__body tr.current-row > td.el-table__cell {
+  background-color: var(--accent-primary-light);
+}
+
+/* ========== 卡片统一样式 ========== */
+.page-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ========== 页面标题 ========== */
+.page-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-header__title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ========== 滚动条美化 ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BFBFBF;
+}
